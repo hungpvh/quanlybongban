@@ -1,46 +1,3 @@
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sổ Tay Bóng Bàn</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        #modal-overlay { background-color: rgba(0,0,0,0.5); }
-    </style>
-</head>
-<body class="bg-gray-100 text-gray-800 font-sans h-screen flex flex-col overflow-hidden">
-    <!-- Header -->
-    <header class="bg-blue-600 text-white shadow-md z-10 flex-shrink-0">
-        <div class="max-w-3xl mx-auto px-4 h-14 flex items-center justify-between">
-            <h1 class="text-lg font-bold flex items-center gap-2" onclick="renderView('list')">
-                <i class="fas fa-table-tennis"></i> Sổ Tay Bóng Bàn
-            </h1>
-            <div class="flex items-center gap-4">
-                <button onclick="renderView('dashboard')" class="text-blue-100 hover:text-white" title="Dashboard">
-                    <i class="fas fa-chart-pie"></i>
-                </button>
-                <button onclick="renderView('settings')" class="text-blue-100 hover:text-white" title="Cài đặt GitHub">
-                    <i class="fas fa-cog"></i>
-                </button>
-            </div>
-        </div>
-        <div id="status-bar" class="bg-yellow-500 text-yellow-900 text-xs text-center py-1 font-semibold hidden">
-            Chế độ dữ liệu mẫu
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main id="app-main" class="flex-1 overflow-y-auto w-full max-w-3xl mx-auto p-4 relative pb-20"></main>
-
-    <!-- Global Modals & Toasts container -->
-    <div id="toast-container" class="fixed top-16 left-1/2 transform -translate-x-1/2 z-50 flex flex-col gap-2 w-11/12 max-w-sm pointer-events-none"></div>
-    <div id="modal-container" class="fixed inset-0 z-40 hidden flex items-center justify-center p-4" id="modal-overlay"></div>
-
-    <script>
         // --- CONSTANTS & MOCK DATA ---
         const MOCK_DICTIONARY = {
             "thong_tin_tran_dau": { "ngay_thi_dau": "Ngày thi đấu", "loai_hinh": "Loại hình", "doi_thu_1": "Tên Đối thủ 1", "doi_thu_2": "Tên Đối thủ 2", "chap_bong": "Chấp bóng", "ket_qua": "Tỷ số", "mo_ta": "Mô tả", "link_video": "Link video" },
@@ -1098,7 +1055,6 @@
     } else {
         html += `<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center text-gray-400 text-sm flex items-center justify-center">Chưa có chuỗi thua</div>`;
     }
-    html += `<div class="col-span-1 sm:col-span-2 text-xs text-gray-400 italic text-right -mt-2">* Nếu có nhiều chuỗi dài bằng nhau, chuỗi xuất hiện sớm nhất sẽ được hiển thị.</div>`;
     html += `</div>`;
 
     if (gameAnalysis.length > 0) {
@@ -1224,6 +1180,3 @@ window.clearDashboardFilter = function() {
         document.addEventListener('DOMContentLoaded', () => {
             loadGithubConfig();
         });
-    </script>
-</body>
-</html>
