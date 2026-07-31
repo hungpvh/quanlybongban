@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "id_tran_dau": "match_1785468338611",
+    "thong_tin": {
+      "ngay_thi_dau": "2025-06-25",
+      "loai_hinh": "Thi đấu giải",
+      "doi_thu_1": "Hungpv",
+      "doi_thu_2": "Khánh TTT",
+      "chap_bong": "Tôi chấp 2",
+      "ket_qua": "2-2",
+      "mo_ta": "Đánh giải cỏ Chào hè của TTT BIDV",
+      "link_video": "https://www.youtube.com/watch?v=p56WO3mk7GQ"
+    },
+    "chi_tiet_game": []
+  }
+]
