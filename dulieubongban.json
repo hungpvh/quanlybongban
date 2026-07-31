@@ -369,7 +369,7 @@
         "game_so": 3,
         "ty_so_bat_dau": "0-2",
         "nguoi_giao_bong_truoc": "Hungpv",
-        "ty_so_chung_cuoc": "10-8",
+        "ty_so_chung_cuoc": "11-8",
         "trang_thai": "dang_dau",
         "danh_sach_diem": [
           {
@@ -515,6 +515,15 @@
             "ky_thuat": "giat_trai",
             "phuong_thuc": "toi_ghi_diem",
             "nguoi_giao_bong": "Khánh TTT"
+          },
+          {
+            "thu_tu_diem": 17,
+            "ty_so_hien_tai": "11-8",
+            "loai_diem": "thang",
+            "nhom": "nhom_giao_bong",
+            "ky_thuat": "len_nhanh",
+            "phuong_thuc": "doi_thu_danh_hong",
+            "nguoi_giao_bong": "Hungpv"
           }
         ]
       }
