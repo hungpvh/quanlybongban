@@ -11,6 +11,15 @@
       "mo_ta": "Đánh giải cỏ Chào hè của TTT BIDV",
       "link_video": "https://www.youtube.com/watch?v=p56WO3mk7GQ"
     },
-    "chi_tiet_game": []
+    "chi_tiet_game": [
+      {
+        "game_so": 1,
+        "ty_so_bat_dau": "0-2",
+        "nguoi_giao_bong_truoc": "Hungpv",
+        "ty_so_chung_cuoc": "0-2",
+        "trang_thai": "dang_dau",
+        "danh_sach_diem": []
+      }
+    ]
   }
 ]
