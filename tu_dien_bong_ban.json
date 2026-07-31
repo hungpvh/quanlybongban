@@ -12,11 +12,11 @@
     "link_khac": "Video lưu trữ khác"
   },
   "loai_giao_bong": {
-    "xuong_ngan": "Xoáy xuống ngắn",
-    "xuong_dai": "Xoáy xuống dài sâu",
-    "len_nhanh": "Xoáy lên / Ngang lên nhanh",
-    "long": "Bóng lỏng (Không xoáy)",
-    "khong_doc_duoc": "Không đọc được / Không xác định"
+    "xuong_ngan": "Giao xoáy xuống ngắn",
+    "xuong_dai": "Giao xoáy xuống dài sâu",
+    "len_nhanh": "Giao xoáy lên / Ngang lên nhanh",
+    "long": "Giao bóng lỏng (Không xoáy)",
+    "khong_doc_duoc": "Không đọc được xoáy giao bóng"
   },
   "ky_thuat_rally": {
     "giat_phai": "Tấn công bằng giật phải",
