@@ -13,6 +13,15 @@
       "link_facebook": "",
       "link_khac": ""
     },
-    "chi_tiet_game": []
+    "chi_tiet_game": [
+      {
+        "game_so": 1,
+        "ty_so_bat_dau": "0-0",
+        "nguoi_giao_bong_truoc": "Nghiêm Xuân Hùng",
+        "ty_so_chung_cuoc": "0-0",
+        "trang_thai": "dang_dau",
+        "danh_sach_diem": []
+      }
+    ]
   }
 ]
