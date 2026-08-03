@@ -43,14 +43,76 @@
     <script>
         // --- CONSTANTS & MOCK DATA ---
         const MOCK_DICTIONARY = {
-            "thong_tin_tran_dau": { "ngay_thi_dau": "Ngày thi đấu", "loai_hinh": "Loại hình", "doi_thu_1": "Tên Đối thủ 1", "doi_thu_2": "Tên Đối thủ 2", "chap_bong": "Chấp bóng", "ket_qua": "Tỷ số", "mo_ta": "Mô tả", "link_video": "Link video" },
-            "loai_giao_bong": { "xuong_ngan": "Xoáy xuống ngắn", "xuong_dai": "Xoáy xuống dài sâu", "len_ngan": "Xoáy lên/ngang ngắn", "len_dai": "Xoáy lên/ngang dài nhanh", "long": "Bóng lỏng", "khong_doc_duoc": "Không đọc được" },
-            "ky_thuat_rally": { "giat_phai": "Giật phải", "doi_cong_phai": "Đôi công phải", "flick_phai": "Flick phải", "giat_trai": "Giật trái", "doi_cong_trai": "Đôi công trái", "flick_trai": "Flick trái", "bat_dap_bong": "Bạt/Đập", "doi_giat_xa_ban": "Đối giật xa bàn", "phong_thu_phai": "Phòng thủ phải", "phong_thu_trai": "Phòng thủ trái", "go_day_bong": "Gò/Đẩy", "bat_ngan_tha_long": "Bắt ngắn/Thả lỏng", "cau_bong_bong": "Câu bóng bổng", "loi_khac": "Lỗi khác" }
-        };
-        const MOCK_MATCHES = [
+  "thong_tin_tran_dau": {
+    "ngay_thi_dau": "Ngày thi đấu",
+    "loai_hinh": "Loại hình (Giao hữu / Đánh bia / Giải đấu)",
+    "doi_thu_1": "Tên của bạn",
+    "doi_thu_2": "Tên đối thủ",
+    "chap_bong": "Thông tin chấp bóng",
+    "ket_qua": "Tỷ số chung cuộc",
+    "mo_ta": "Ghi chú & Phân tích trận đấu",
+    "link_youtube": "Video YouTube",
+    "link_facebook": "Video Facebook",
+    "link_khac": "Video lưu trữ khác"
+  },
+  "tinh_chat_pha_bong": {
+    "winner": "Điểm trực tiếp",
+    "unforced_error": "Lỗi tự đánh hỏng",
+    "forced_error": "Lỗi bị ép đánh hỏng"
+  },
+  "ky_thuat_rally": {
+    "giat_phai": "Giật phải",
+    "doi_cong_phai": "Đôi công phải",
+    "flick_phai": "Flick / Hất phải",
+    "giat_trai": "Giật trái",
+    "doi_cong_trai": "Đôi công trái",
+    "flick_trai": "Flick / Hất trái",
+    "bat_dap_bong": "Bạt / Đập",
+    "doi_giat_xa_ban": "Đối giật xa bàn",
+    "phong_thu_phai": "Phòng thủ / Kê chặn phải",
+    "phong_thu_trai": "Phòng thủ / Kê chặn trái",
+    "go_day_bong": "Gò / Cắt / Đẩy",
+    "bat_ngan_tha_long": "Bắt ngắn / Thả lỏng",
+    "cau_bong_bong": "Câu bóng bổng",
+    "loi_khac": "Lỗi khác (Giao hỏng, di chuyển...)"
+  },
+  "loai_giao_bong": {
+    "giao_bong_thuan": "Giao bóng con lắc thuận tay (Pendulum)",
+    "giao_bong_trai": "Giao bóng trái tay",
+    "giao_bong_con_lac_nguoc": "Giao bóng con lắc ngược (Reverse Pendulum)",
+    "giao_bong_duc": "Giao bóng đục",
+    "giao_bong_tomahawk": "Giao bóng Tomahawk"
+  },
+  "thuoc_tinh_bong": {
+    "diem_roi_ngang": {
+      "trai": "Trái tay (Backhand)",
+      "giua": "Giữa bàn (Middle)",
+      "phai": "Phải tay (Forehand)"
+    },
+    "do_dai": {
+      "ngan": "Ngắn (2 nảy)",
+      "dai": "Dài"
+    },
+    "do_xoay": {
+      "xuong": "Xoáy xuống",
+      "len": "Xoáy lên",
+      "long": "Bóng lỏng"
+    }
+  },
+  "thuoc_tinh_loi": {
+    "vi_tri_hong": {
+      "ruc_luoi": "Rúc lưới",
+      "ra_ngoai_dai": "Ra ngoài cạnh đáy",
+      "ra_ngoai_bien": "Ra ngoài cạnh bên",
+      "truot_bong": "Đánh hụt"
+    }
+  }
+};
+
+const MOCK_MATCHES = [
             {
                 "id_tran_dau": "match_1717123456",
-                "thong_tin": { "ngay_thi_dau": "2026-07-30", "loai_hinh": "Đánh bia", "doi_thu_1": "Hungpv", "doi_thu_2": "Nguyễn Văn A", "chap_bong": "Tôi chấp 2", "ket_qua": "3-2", "mo_ta": "Đối thủ gò nặng.", "link_video": "" },
+                "thong_tin": { "ngay_thi_dau": "2026-07-30", "loai_hinh": "Đánh bia", "doi_thu_1": "Hungpv", "doi_thu_2": "Nguyễn Văn A", "chap_bong": "Tôi chấp 2", "ket_qua": "3-2", "mo_ta": "Đối thủ gò nặng.", "link_youtube": "", "link_facebook": "", "link_khac": "" },
                 "chi_tiet_game": [
                     {
                         "game_so": 1, "ty_so_bat_dau": "0-2", "nguoi_giao_bong_truoc": "Hungpv", "ty_so_chung_cuoc": "11-8", "trang_thai": "hoan_thanh",
@@ -74,6 +136,162 @@
             github: { user: '', repo: '', branch: 'main', dataPath: 'dulieubongban.json', dictPath: 'tu_dien_bong_ban.json', token: '', sha: null, dictSha: null },
             isLoading: false
         };
+
+        // --- DATA MIGRATION & VALIDATION ---
+        function normalizePoint(pt, m) {
+            if (pt.chi_tiet_pha_bong) return pt;
+            const isWin = pt.loai_diem === 'thang';
+            const me = m.thong_tin.doi_thu_1 || 'Hungpv';
+            const opp = m.thong_tin.doi_thu_2 || 'Doi_thu';
+
+            let tinh_chat = isWin ? 'winner' : 'unforced_error';
+            let nguoi_ket_thuc = isWin ? me : me; // default
+            let ky_thuat_ket_thuc = pt.ky_thuat || null;
+
+            if (pt.phuong_thuc === 'toi_ghi_diem') {
+                tinh_chat = 'winner';
+                nguoi_ket_thuc = me;
+            } else if (pt.phuong_thuc === 'doi_thu_danh_hong') {
+                tinh_chat = 'unforced_error';
+                nguoi_ket_thuc = opp;
+            } else if (pt.phuong_thuc === 'toi_danh_hong') {
+                tinh_chat = 'unforced_error';
+                nguoi_ket_thuc = me;
+            } else if (pt.phuong_thuc === 'doi_thu_ghi_diem') {
+                tinh_chat = 'winner';
+                nguoi_ket_thuc = opp;
+            }
+
+            pt.chi_tiet_pha_bong = {
+                tinh_chat: tinh_chat,
+                nguoi_ket_thuc: nguoi_ket_thuc,
+                ky_thuat_ket_thuc: ky_thuat_ket_thuc,
+                nguoi_kien_tao: null,
+                ky_thuat_kien_tao: null,
+                dac_tinh: {
+                    diem_roi_ngang: null,
+                    do_dai: null,
+                    do_xoay: null,
+                    vi_tri_hong: null
+                }
+            };
+
+            delete pt.nhom;
+            delete pt.ky_thuat;
+            delete pt.phuong_thuc;
+            return pt;
+        }
+
+        function normalizeGame(g, m) {
+            if (!g.danh_sach_diem) return g;
+            g.danh_sach_diem.forEach(pt => normalizePoint(pt, m));
+            return g;
+        }
+
+        function normalizeMatch(m) {
+            if (!m.chi_tiet_game) return m;
+            m.chi_tiet_game.forEach(g => normalizeGame(g, m));
+            return m;
+        }
+
+        function migrateOldSchema() {
+            if (!appState.matches) return;
+            appState.matches.forEach(m => normalizeMatch(m));
+        }
+
+        
+        function getOldProps(pt, m) {
+            if (!pt.chi_tiet_pha_bong) return { phuong_thuc: pt.phuong_thuc, nhom: pt.nhom, ky_thuat: pt.ky_thuat };
+            const c = pt.chi_tiet_pha_bong;
+            const me = m.thong_tin.doi_thu_1 || 'Hungpv';
+            const opp = m.thong_tin.doi_thu_2 || 'Doi_thu';
+            
+            let phuong_thuc = '';
+            if (c.tinh_chat === 'winner') {
+                phuong_thuc = (c.nguoi_ket_thuc === me) ? 'toi_ghi_diem' : 'doi_thu_ghi_diem';
+            } else {
+                phuong_thuc = (c.nguoi_ket_thuc === me) ? 'toi_danh_hong' : 'doi_thu_danh_hong';
+            }
+            
+            let ky_thuat = c.ky_thuat_ket_thuc || '';
+            let nhom = 'nhom_ky_thuat';
+            if (appState.dict && appState.dict.loai_giao_bong && appState.dict.loai_giao_bong[ky_thuat]) {
+                nhom = 'nhom_giao_bong';
+            }
+            return { phuong_thuc, nhom, ky_thuat };
+        }
+
+        function setOldProps(pt, loai_diem, ky_thuat, phuong_thuc, m) {
+            const me = m.thong_tin.doi_thu_1 || 'Hungpv';
+            const opp = m.thong_tin.doi_thu_2 || 'Doi_thu';
+            
+            let tinh_chat = loai_diem === 'thang' ? 'winner' : 'unforced_error';
+            let nguoi_ket_thuc = me;
+            
+            if (phuong_thuc === 'toi_ghi_diem') {
+                tinh_chat = 'winner';
+                nguoi_ket_thuc = me;
+            } else if (phuong_thuc === 'doi_thu_danh_hong') {
+                tinh_chat = 'unforced_error';
+                nguoi_ket_thuc = opp;
+            } else if (phuong_thuc === 'toi_danh_hong') {
+                tinh_chat = 'unforced_error';
+                nguoi_ket_thuc = me;
+            } else if (phuong_thuc === 'doi_thu_ghi_diem') {
+                tinh_chat = 'winner';
+                nguoi_ket_thuc = opp;
+            }
+            
+            pt.loai_diem = loai_diem;
+            pt.chi_tiet_pha_bong = {
+                tinh_chat: tinh_chat,
+                nguoi_ket_thuc: nguoi_ket_thuc,
+                ky_thuat_ket_thuc: ky_thuat,
+                nguoi_kien_tao: null,
+                ky_thuat_kien_tao: null,
+                dac_tinh: {
+                    diem_roi_ngang: null,
+                    do_dai: null,
+                    do_xoay: null,
+                    vi_tri_hong: null
+                }
+            };
+            delete pt.nhom;
+            delete pt.ky_thuat;
+            delete pt.phuong_thuc;
+            
+            validatePoint(pt);
+        }
+
+        function validatePoint(pt) {
+            const chi_tiet = pt.chi_tiet_pha_bong;
+            if (!chi_tiet) return;
+            
+            if (chi_tiet.nguoi_ket_thuc === undefined) chi_tiet.nguoi_ket_thuc = null;
+            if (chi_tiet.ky_thuat_ket_thuc === undefined) chi_tiet.ky_thuat_ket_thuc = null;
+            if (chi_tiet.nguoi_kien_tao === undefined) chi_tiet.nguoi_kien_tao = null;
+            if (chi_tiet.ky_thuat_kien_tao === undefined) chi_tiet.ky_thuat_kien_tao = null;
+            
+            if (!chi_tiet.dac_tinh) chi_tiet.dac_tinh = { diem_roi_ngang: null, do_dai: null, do_xoay: null, vi_tri_hong: null };
+            if (chi_tiet.dac_tinh.diem_roi_ngang === undefined) chi_tiet.dac_tinh.diem_roi_ngang = null;
+            if (chi_tiet.dac_tinh.do_dai === undefined) chi_tiet.dac_tinh.do_dai = null;
+            if (chi_tiet.dac_tinh.do_xoay === undefined) chi_tiet.dac_tinh.do_xoay = null;
+            if (chi_tiet.dac_tinh.vi_tri_hong === undefined) chi_tiet.dac_tinh.vi_tri_hong = null;
+
+            // Validate unused properties are null
+            if (chi_tiet.tinh_chat === 'winner') {
+                chi_tiet.dac_tinh.vi_tri_hong = null;
+            }
+            if (chi_tiet.tinh_chat === 'forced_error' && !chi_tiet.nguoi_kien_tao) {
+                // Must have nguoi_kien_tao
+                chi_tiet.nguoi_kien_tao = "Unknown";
+            }
+            if (chi_tiet.tinh_chat === 'unforced_error') {
+                chi_tiet.nguoi_kien_tao = null;
+                chi_tiet.ky_thuat_kien_tao = null;
+            }
+        }
+
 
         // --- UTILS ---
         const b64EncodeUnicode = str => btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (m, p1) => String.fromCharCode('0x' + p1)));
@@ -138,6 +356,7 @@
 
                 if (dataRes && dataRes.content) {
                     appState.matches = JSON.parse(b64DecodeUnicode(dataRes.content));
+                    migrateOldSchema();
                     appState.github.sha = dataRes.sha;
                     appState.isMock = false;
                     showToast('Tải dữ liệu thành công!', 'success');
@@ -185,6 +404,7 @@
             appState.isMock = true;
             appState.dict = MOCK_DICTIONARY;
             appState.matches = JSON.parse(JSON.stringify(MOCK_MATCHES));
+            migrateOldSchema();
             updateStatusBar();
             renderView(appState.view);
         }
@@ -267,55 +487,37 @@
 
         // --- MATCH FORM ---
         function renderMatchForm(container, editId = null) {
-            let match = { thong_tin: { ngay_thi_dau: new Date().toISOString().split('T')[0], loai_hinh: 'Giao hữu', doi_thu_1: 'Hungpv', doi_thu_2: '', chap_bong: '', ket_qua: '', mo_ta: '', link_video: '' } };
+            let match = { thong_tin: { ngay_thi_dau: new Date().toISOString().split('T')[0], loai_hinh: 'Giao hữu', doi_thu_1: 'Tôi' } };
             if (editId) match = appState.matches.find(m => m.id_tran_dau === editId) || match;
-            const info = match.thong_tin;
+            const info = match.thong_tin || {};
+            const schema = appState.dict.thong_tin_tran_dau || {};
             
+            let formHtml = '';
+            Object.keys(schema).forEach(key => {
+                const label = schema[key];
+                const value = info[key] || '';
+                
+                if (key === 'ngay_thi_dau') {
+                    formHtml += `<div><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><input type="date" id="mf_${key}" value="${escapeHtml(value)}" class="w-full border rounded p-2 text-sm" required></div>`;
+                } else if (key === 'mo_ta') {
+                    formHtml += `<div class="col-span-1 md:col-span-2"><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><textarea id="mf_${key}" rows="2" class="w-full border rounded p-2 text-sm">${escapeHtml(value)}</textarea></div>`;
+                } else if (key.startsWith('link_')) {
+                    formHtml += `<div><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><input type="url" id="mf_${key}" value="${escapeHtml(value)}" class="w-full border rounded p-2 text-sm"></div>`;
+                } else if (key === 'loai_hinh') {
+                    formHtml += `<div><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><input type="text" id="mf_${key}" list="loai_hinh_list" value="${escapeHtml(value)}" class="w-full border rounded p-2 text-sm" required><datalist id="loai_hinh_list"><option value="Giao hữu"></option><option value="Đánh bia"></option><option value="Thi đấu giải"></option></datalist></div>`;
+                } else if (key === 'doi_thu_1' || key === 'doi_thu_2' || key === 'ket_qua') {
+                    formHtml += `<div><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><input type="text" id="mf_${key}" value="${escapeHtml(value)}" class="w-full border rounded p-2 text-sm" required></div>`;
+                } else {
+                    formHtml += `<div><label class="block text-xs font-semibold text-gray-600 mb-1">${label}</label><input type="text" id="mf_${key}" value="${escapeHtml(value)}" class="w-full border rounded p-2 text-sm"></div>`;
+                }
+            });
+
             container.innerHTML = `
                 <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-4">
                     <h2 class="text-xl font-bold mb-4">${editId ? 'Sửa trận đấu' : 'Thêm trận đấu mới'}</h2>
                     <form id="match-form" class="space-y-4" onsubmit="handleMatchSubmit(event, '${editId}')">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Ngày thi đấu</label>
-                                <input type="date" id="mf_ngay" value="${info.ngay_thi_dau}" class="w-full border rounded p-2 text-sm" required>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Loại hình</label>
-                                <select id="mf_loai" class="w-full border rounded p-2 text-sm">
-                                    <option value="Giao hữu" ${info.loai_hinh==='Giao hữu'?'selected':''}>Giao hữu</option>
-                                    <option value="Đánh bia" ${info.loai_hinh==='Đánh bia'?'selected':''}>Đánh bia</option>
-                                    <option value="Thi đấu giải" ${info.loai_hinh==='Thi đấu giải'?'selected':''}>Thi đấu giải</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Đối thủ 1 (Mình)</label>
-                                <input type="text" id="mf_dt1" value="${escapeHtml(info.doi_thu_1)}" class="w-full border rounded p-2 text-sm" required>
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Đối thủ 2</label>
-                                <input type="text" id="mf_dt2" value="${escapeHtml(info.doi_thu_2)}" class="w-full border rounded p-2 text-sm" required placeholder="Tên đối thủ">
-                            </div>
-                        </div>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Chấp bóng</label>
-                                <input type="text" id="mf_chap" value="${escapeHtml(info.chap_bong)}" class="w-full border rounded p-2 text-sm" placeholder="VD: Tôi chấp 2">
-                            </div>
-                            <div>
-                                <label class="block text-xs font-semibold text-gray-600 mb-1">Tỷ số (Tự động hoặc thủ công)</label>
-                                <input type="text" id="mf_kq" value="${escapeHtml(info.ket_qua)}" class="w-full border rounded p-2 text-sm" placeholder="VD: 3-2" required>
-                            </div>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Mô tả / Nhận xét</label>
-                            <textarea id="mf_mota" rows="2" class="w-full border rounded p-2 text-sm">${escapeHtml(info.mo_ta)}</textarea>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Link Video (YouTube/FB)</label>
-                            <input type="url" id="mf_video" value="${escapeHtml(info.link_video)}" class="w-full border rounded p-2 text-sm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            ${formHtml}
                         </div>
                         <div class="flex gap-2 pt-4">
                             <button type="button" onclick="renderView('list')" class="flex-1 bg-gray-200 text-gray-800 py-2 rounded-lg font-medium">Hủy</button>
@@ -325,18 +527,17 @@
                 </div>
             `;
         }
+
         async function handleMatchSubmit(e, editId) {
             e.preventDefault();
-            const info = {
-                ngay_thi_dau: document.getElementById('mf_ngay').value,
-                loai_hinh: document.getElementById('mf_loai').value,
-                doi_thu_1: document.getElementById('mf_dt1').value,
-                doi_thu_2: document.getElementById('mf_dt2').value,
-                chap_bong: document.getElementById('mf_chap').value,
-                ket_qua: document.getElementById('mf_kq').value,
-                mo_ta: document.getElementById('mf_mota').value,
-                link_video: document.getElementById('mf_video').value
-            };
+            const schema = appState.dict.thong_tin_tran_dau || {};
+            const info = {};
+            Object.keys(schema).forEach(key => {
+                const el = document.getElementById(`mf_${key}`);
+                if (el) {
+                    info[key] = el.value;
+                }
+            });
             if (editId && editId !== 'null') {
                 const match = appState.matches.find(m => m.id_tran_dau === editId);
                 if(match) match.thong_tin = info;
@@ -389,7 +590,9 @@
                     <div class="text-sm text-gray-600 mb-3">${escapeHtml(info.loai_hinh)} &bull; ${info.ngay_thi_dau} &bull; ${escapeHtml(info.chap_bong)}</div>
                     ${info.mo_ta ? `<div class="text-sm text-gray-700 italic bg-gray-50 p-2 rounded mb-3">"${escapeHtml(info.mo_ta)}"</div>` : ''}
                     <div class="flex gap-2">
-                        ${info.link_video ? `<a href="${escapeHtml(info.link_video)}" target="_blank" rel="noopener noreferrer" class="text-xs bg-red-100 text-red-600 px-3 py-1.5 rounded font-medium"><i class="fab fa-youtube"></i> Xem Video</a>` : ''}
+                        ${info.link_youtube ? `<a href="${escapeHtml(info.link_youtube)}" target="_blank" rel="noopener noreferrer" class="text-xs bg-red-100 text-red-600 px-3 py-1.5 rounded font-medium"><i class="fab fa-youtube"></i> YouTube</a>` : ''}
+                        ${info.link_facebook ? `<a href="${escapeHtml(info.link_facebook)}" target="_blank" rel="noopener noreferrer" class="text-xs bg-blue-100 text-blue-600 px-3 py-1.5 rounded font-medium"><i class="fab fa-facebook"></i> Facebook</a>` : ''}
+                        ${info.link_khac ? `<a href="${escapeHtml(info.link_khac)}" target="_blank" rel="noopener noreferrer" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded font-medium"><i class="fas fa-link"></i> Link Khác</a>` : ''}
                         <button onclick="autoUpdateResult()" class="text-xs bg-gray-100 text-gray-700 px-3 py-1.5 rounded font-medium"><i class="fas fa-sync"></i> Tự tính tỷ số</button>
                     </div>
                 </div>
@@ -597,17 +800,28 @@
                 html += `<div class="text-center text-gray-400 py-4 text-sm">Chưa có điểm nào.</div>`;
             } else {
                 reversedPts.forEach(pt => {                    const isWin = pt.loai_diem === 'thang';
-                    const name = pt.nhom === 'nhom_giao_bong' ? appState.dict.loai_giao_bong[pt.ky_thuat] : appState.dict.ky_thuat_rally[pt.ky_thuat];
+                    const { nhom, ky_thuat, phuong_thuc } = getOldProps(pt, match);
+                    const name = nhom === 'nhom_giao_bong' ? (appState.dict.loai_giao_bong[ky_thuat]||ky_thuat) : (appState.dict.ky_thuat_rally[ky_thuat]||ky_thuat);
                     const dictPT = { "toi_ghi_diem": "Tôi ghi điểm", "doi_thu_danh_hong": "Đối thủ đánh hỏng", "toi_danh_hong": "Tôi đánh hỏng", "doi_thu_ghi_diem": "Đối thủ ghi điểm" };
-                    const ptName = pt.phuong_thuc ? dictPT[pt.phuong_thuc] : (isWin ? "Tôi ghi điểm" : "Tôi đánh hỏng");
-                    const ptColor = pt.phuong_thuc === 'toi_ghi_diem' || pt.phuong_thuc === 'doi_thu_danh_hong' ? 'text-blue-600' : 'text-red-500';
+                    const ptName = phuong_thuc ? dictPT[phuong_thuc] : (isWin ? "Tôi ghi điểm" : "Tôi đánh hỏng");
+                    const ptColor = phuong_thuc === 'toi_ghi_diem' || phuong_thuc === 'doi_thu_danh_hong' ? 'text-blue-600' : 'text-red-500';
                     html += `
                         <div class="bg-white p-3 rounded-lg border ${isWin?'border-blue-200 border-l-4 border-l-blue-500':'border-red-200 border-l-4 border-l-red-500'} shadow-sm flex items-center justify-between text-sm">
                             <div class="flex items-center gap-3">
                                 <div class="font-black w-10 text-center ${isWin?'text-blue-600':'text-red-600'}">${pt.ty_so_hien_tai}</div>
                                 <div>
                                     <div class="font-bold text-gray-800">${name} <span class="text-xs font-semibold px-1.5 py-0.5 rounded ml-1 bg-gray-100 ${ptColor}">${ptName}</span></div>
-                                    <div class="text-xs text-gray-500 mt-0.5">Giao: ${pt.nguoi_giao_bong} &bull; #${pt.thu_tu_diem}</div>
+                                    <div class="text-xs text-gray-500 mt-0.5">
+                                        Giao: ${pt.nguoi_giao_bong} &bull; #${pt.thu_tu_diem}
+                                        ${pt.chi_tiet_pha_bong && pt.chi_tiet_pha_bong.dac_tinh && (pt.chi_tiet_pha_bong.dac_tinh.do_xoay || pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang || pt.chi_tiet_pha_bong.dac_tinh.do_dai) ? 
+                                            `<br><span class="text-blue-500">` + 
+                                            [
+                                                pt.chi_tiet_pha_bong.dac_tinh.do_xoay ? appState.dict.thuoc_tinh_bong.do_xoay[pt.chi_tiet_pha_bong.dac_tinh.do_xoay] || pt.chi_tiet_pha_bong.dac_tinh.do_xoay : '',
+                                                pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'trai' ? 'Trái' : pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'giua' ? 'Giữa' : pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'phai' ? 'Phải' : '',
+                                                pt.chi_tiet_pha_bong.dac_tinh.do_dai === 'ngan' ? 'Ngắn' : pt.chi_tiet_pha_bong.dac_tinh.do_dai === 'dai' ? 'Dài' : ''
+                                            ].filter(Boolean).join(' - ') + `</span>` 
+                                        : ''}
+                                    </div>
                                 </div>
                             </div>
                             ${!isLocked ? `
@@ -623,93 +837,249 @@
             html += `</div></div>`;
             container.innerHTML = html;
         }
-        function openPointModal(loai_diem) {
-            const isWin = loai_diem === 'thang';
-            const titleA = isWin ? "TÔI GHI ĐIỂM" : "TÔI ĐÁNH HỎNG";
-            const methodA = isWin ? "toi_ghi_diem" : "toi_danh_hong";
-            const titleB = isWin ? "ĐỐI THỦ ĐÁNH HỎNG" : "ĐỐI THỦ GHI ĐIỂM";
-            const methodB = isWin ? "doi_thu_danh_hong" : "doi_thu_ghi_diem";
-
-            const techKeys = Object.keys(appState.dict.ky_thuat_rally);
-            const serveKeys = Object.keys(appState.dict.loai_giao_bong);
+        window.openPointModal = function(loai_diem) {
+            window.ptEntryState = {
+                loai_diem: loai_diem,
+                tinh_chat: null,
+                nguoi_ket_thuc: null,
+                ky_thuat_ket_thuc: null,
+                nguoi_kien_tao: null,
+                ky_thuat_kien_tao: null,
+                dac_tinh: {
+                    diem_roi_ngang: null,
+                    do_dai: null,
+                    do_xoay: null,
+                    vi_tri_hong: null
+                }
+            };
             
-            const btnClassA = isWin ? "bg-blue-50 text-blue-700 border-blue-200 hover:bg-blue-100" : "bg-red-50 text-red-700 border-red-200 hover:bg-red-100";
-            const btnClassB = isWin ? "bg-green-50 text-green-700 border-green-200 hover:bg-green-100" : "bg-orange-50 text-orange-700 border-orange-200 hover:bg-orange-100";
+            const title = loai_diem === 'thang' ? 'ĐIỂM THẮNG CỦA TÔI' : 'ĐIỂM THUA CỦA TÔI';
+            const colorClass = loai_diem === 'thang' ? 'text-blue-600' : 'text-red-600';
             
-            let htmlA = `<h4 class="font-bold text-sm mb-3 text-center border-b pb-1">${titleA}</h4>`;
-            htmlA += `<div class="font-semibold text-xs text-gray-500 mb-2 mt-3 uppercase">Giao bóng</div><div class="grid grid-cols-1 gap-2">`;
-            serveKeys.forEach(k => {
-                htmlA += `<button onclick="addPoint('${loai_diem}', '${k}', 'nhom_giao_bong', '${methodA}'); closeModal();" class="border rounded-lg p-2 text-xs font-semibold shadow-sm transition ${btnClassA}">${appState.dict.loai_giao_bong[k]}</button>`;
-            });
-            htmlA += `</div><div class="font-semibold text-xs text-gray-500 mb-2 mt-4 uppercase">Kỹ thuật</div><div class="grid grid-cols-1 gap-2">`;
-            techKeys.forEach(k => {
-                htmlA += `<button onclick="addPoint('${loai_diem}', '${k}', 'nhom_ky_thuat', '${methodA}'); closeModal();" class="border rounded-lg p-2 text-xs font-semibold shadow-sm transition ${btnClassA}">${appState.dict.ky_thuat_rally[k]}</button>`;
-            });
-            htmlA += `</div>`;
-
-            let htmlB = `<h4 class="font-bold text-sm mb-3 text-center border-b pb-1">${titleB}</h4>`;
-            htmlB += `<div class="font-semibold text-xs text-gray-500 mb-2 mt-3 uppercase">Giao bóng</div><div class="grid grid-cols-1 gap-2">`;
-            serveKeys.forEach(k => {
-                htmlB += `<button onclick="addPoint('${loai_diem}', '${k}', 'nhom_giao_bong', '${methodB}'); closeModal();" class="border rounded-lg p-2 text-xs font-semibold shadow-sm transition ${btnClassB}">${appState.dict.loai_giao_bong[k]}</button>`;
-            });
-            htmlB += `</div><div class="font-semibold text-xs text-gray-500 mb-2 mt-4 uppercase">Kỹ thuật</div><div class="grid grid-cols-1 gap-2">`;
-            techKeys.forEach(k => {
-                htmlB += `<button onclick="addPoint('${loai_diem}', '${k}', 'nhom_ky_thuat', '${methodB}'); closeModal();" class="border rounded-lg p-2 text-xs font-semibold shadow-sm transition ${btnClassB}">${appState.dict.ky_thuat_rally[k]}</button>`;
-            });
-            htmlB += `</div>`;
-
-            let html = `
-                <div class="flex justify-between items-center mb-4 border-b pb-2">
-                    <h3 class="text-xl font-black ${isWin?'text-blue-600':'text-red-600'}">${isWin ? 'GHI ĐIỂM' : 'MẤT ĐIỂM'}</h3>
-                    <button onclick="closeModal()" class="text-gray-400 hover:text-gray-800"><i class="fas fa-times text-xl"></i></button>
+            showModal(`
+                <h3 class="font-black text-xl mb-6 text-center ${colorClass}">${title}</h3>
+                <p class="text-sm font-bold text-gray-500 mb-2 text-center">TÍNH CHẤT PHA BÓNG</p>
+                <div class="grid grid-cols-1 gap-3">
+                    <button onclick="selectTinhChat('winner')" class="bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold p-4 rounded-xl border border-blue-200 shadow-sm flex flex-col items-center justify-center gap-1 transition"><i class="fas fa-bolt text-2xl"></i> ${appState.dict.tinh_chat_pha_bong.winner || 'Điểm trực tiếp'}</button>
+                    <button onclick="selectTinhChat('forced_error')" class="bg-orange-50 hover:bg-orange-100 text-orange-700 font-bold p-4 rounded-xl border border-orange-200 shadow-sm flex flex-col items-center justify-center gap-1 transition"><i class="fas fa-compress-arrows-alt text-2xl"></i> ${appState.dict.tinh_chat_pha_bong.forced_error || 'Bị ép đánh hỏng'}</button>
+                    <button onclick="selectTinhChat('unforced_error')" class="bg-red-50 hover:bg-red-100 text-red-700 font-bold p-4 rounded-xl border border-red-200 shadow-sm flex flex-col items-center justify-center gap-1 transition"><i class="fas fa-times-circle text-2xl"></i> ${appState.dict.tinh_chat_pha_bong.unforced_error || 'Tự đánh hỏng'}</button>
                 </div>
-                <div class="flex gap-4 max-h-[70vh] overflow-y-auto pb-4">
-                    <div class="flex-1">${htmlA}</div>
-                    <div class="flex-1 border-l pl-4">${htmlB}</div>
+                <button onclick="closeModal()" class="w-full mt-6 p-4 bg-gray-200 text-gray-800 rounded-xl font-bold shadow-sm">HỦY BỎ</button>
+            `);
+        }
+
+        window.selectTinhChat = function(val) {
+            window.ptEntryState.tinh_chat = val;
+            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
+            const me = match.thong_tin.doi_thu_1 || 'Tôi';
+            const opp = match.thong_tin.doi_thu_2 || 'Đối thủ';
+
+            if (val === 'winner') {
+                window.ptEntryState.nguoi_ket_thuc = (window.ptEntryState.loai_diem === 'thang') ? me : opp;
+            } else if (val === 'unforced_error') {
+                window.ptEntryState.nguoi_ket_thuc = (window.ptEntryState.loai_diem === 'thua') ? me : opp;
+            } else if (val === 'forced_error') {
+                window.ptEntryState.nguoi_ket_thuc = (window.ptEntryState.loai_diem === 'thua') ? me : opp;
+                window.ptEntryState.nguoi_kien_tao = (window.ptEntryState.loai_diem === 'thua') ? opp : me;
+            }
+
+            renderPtEntryForm();
+        }
+
+        window.renderPtEntryForm = function() { let currentScroll = 0; const scrollEl = document.getElementById('pt-entry-scroll'); if (scrollEl) currentScroll = scrollEl.scrollTop; const s = window.ptEntryState;
+            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
+            const me = match.thong_tin.doi_thu_1 || 'Tôi';
+            const opp = match.thong_tin.doi_thu_2 || 'Đối thủ';
+            const serveKeys = Object.keys(appState.dict.loai_giao_bong);
+            const techKeys = Object.keys(appState.dict.ky_thuat_rally);
+            const hongKeys = Object.keys(appState.dict.thuoc_tinh_loi.vi_tri_hong);
+
+            const renderPlayerSelect = (label, key) => `
+                <div class="mb-5">
+                    <label class="block text-sm font-black text-gray-800 mb-2">${label}</label>
+                    <div class="flex gap-2">
+                        <button onclick="updatePtState('${key}', '${me}')" class="flex-1 p-3 rounded-xl font-bold border transition ${s[key]===me?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${me}</button>
+                        <button onclick="updatePtState('${key}', '${opp}')" class="flex-1 p-3 rounded-xl font-bold border transition ${s[key]===opp?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${opp}</button>
+                    </div>
                 </div>
             `;
+
+            const renderTechSelect = (label, key) => `
+                <div class="mb-5">
+                    <label class="block text-sm font-black text-gray-800 mb-2">${label}</label>
+                    <div class="grid grid-cols-2 gap-2 mb-2">
+                        ${serveKeys.map(k => `<button onclick="updatePtState('${key}', '${k}')" class="p-3 rounded-xl font-semibold text-xs border transition ${s[key]===k?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${appState.dict.loai_giao_bong[k]}</button>`).join('')}
+                    </div>
+                    <div class="grid grid-cols-3 gap-2">
+                        ${techKeys.map(k => `<button onclick="updatePtState('${key}', '${k}')" class="p-2 rounded-xl font-semibold text-xs border transition ${s[key]===k?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${appState.dict.ky_thuat_rally[k]}</button>`).join('')}
+                    </div>
+                </div>
+            `;
+
+            const renderDiemRoi = () => {
+                const isWin = s.loai_diem === 'thang';
+                // Lấy danh sách keys từ từ điển thay vì fix cứng 'trai', 'giua', 'phai'
+                // Nếu dict có các key khác, vẫn render được.
+                const allCols = Object.keys(appState.dict.thuoc_tinh_bong.diem_roi_ngang);
+                // Giữ logic đảo ngược thứ tự cột nếu là điểm thắng để UI thuận góc nhìn
+                const cols = isWin ? [...allCols].reverse() : allCols;
+                return `
+                <div class="mb-5">
+                    <label class="block text-sm font-black text-gray-800 mb-2">Điểm rơi & Độ dài (Góc nhìn của người đỡ bóng)</label>
+                    <div class="grid grid-cols-${cols.length} gap-2">
+                        ${cols.map(col => {
+                            const tenDai = appState.dict.thuoc_tinh_bong.do_dai.dai || 'Dài';
+                            const tenNgan = appState.dict.thuoc_tinh_bong.do_dai.ngan || 'Ngắn';
+                            const tenNgang = appState.dict.thuoc_tinh_bong.diem_roi_ngang[col] || col;
+                            const btnDai = `<button onclick="updateDiemRoi('${col}', 'dai')" class="p-2 rounded-xl font-bold text-xs border transition ${(s.dac_tinh.diem_roi_ngang===col && s.dac_tinh.do_dai==='dai')?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${tenDai}<br>${tenNgang}</button>`;
+                            const btnNgan = `<button onclick="updateDiemRoi('${col}', 'ngan')" class="p-2 rounded-xl font-bold text-xs border transition ${(s.dac_tinh.diem_roi_ngang===col && s.dac_tinh.do_dai==='ngan')?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${tenNgan}<br>${tenNgang}</button>`;
+                            return `<div class="flex flex-col gap-2">
+                                ${isWin ? btnDai : btnNgan}
+                                ${isWin ? btnNgan : btnDai}
+                            </div>`;
+                        }).join('')}
+                    </div>
+                </div>
+            `};
+
+            const renderDoXoay = () => `
+                <div class="mb-5">
+                    <label class="block text-sm font-black text-gray-800 mb-2">Độ xoáy</label>
+                    <div class="flex bg-gray-100 p-1 rounded-xl">
+                        ${Object.keys(appState.dict.thuoc_tinh_bong.do_xoay).map(x => `
+                            <button onclick="updatePtStateDacTinh('do_xoay', '${x}')" class="flex-1 py-3 rounded-lg font-bold text-sm transition ${s.dac_tinh.do_xoay===x?'bg-white text-blue-700 shadow-sm':'text-gray-500 hover:text-gray-700'}">${appState.dict.thuoc_tinh_bong.do_xoay[x]}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            const renderViTriHong = () => `
+                <div class="mb-5">
+                    <label class="block text-sm font-black text-gray-800 mb-2">Vị trí hỏng</label>
+                    <div class="grid grid-cols-2 gap-2">
+                        ${hongKeys.map(k => `
+                            <button onclick="updatePtStateDacTinh('vi_tri_hong', '${k}')" class="p-4 rounded-xl font-bold text-sm border transition ${s.dac_tinh.vi_tri_hong===k?'bg-red-600 text-white border-red-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${appState.dict.thuoc_tinh_loi.vi_tri_hong[k]}</button>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            let html = `<div id="pt-entry-scroll" class="max-h-[70vh] overflow-y-auto no-scrollbar pb-6 px-1">
+                <div class="flex items-center justify-between mb-4 pb-2 border-b sticky top-0 bg-white z-10 pt-2">
+                    <h3 class="font-black text-lg text-gray-800">${appState.dict.tinh_chat_pha_bong[s.tinh_chat] || s.tinh_chat}</h3>
+                    <button onclick="openPointModal('${s.loai_diem}')" class="text-sm text-gray-500 hover:text-gray-800 font-bold bg-gray-100 px-3 py-1.5 rounded-full"><i class="fas fa-undo mr-1"></i>Đổi</button>
+                </div>
+            `;
+
+            if (s.tinh_chat === 'winner') {
+                html += renderPlayerSelect("Người ghi điểm (Kết thúc)", "nguoi_ket_thuc");
+                html += renderTechSelect("Kỹ thuật kết thúc", "ky_thuat_ket_thuc");
+            } else if (s.tinh_chat === 'forced_error') {
+                html += renderPlayerSelect("Người kiến tạo (Ép)", "nguoi_kien_tao");
+                html += renderTechSelect("Kỹ thuật kiến tạo", "ky_thuat_kien_tao");
+                html += renderPlayerSelect("Người đánh hỏng", "nguoi_ket_thuc");
+                html += renderTechSelect("Kỹ thuật đánh hỏng", "ky_thuat_ket_thuc");
+                html += renderViTriHong();
+            } else if (s.tinh_chat === 'unforced_error') {
+                html += renderPlayerSelect("Người đánh hỏng", "nguoi_ket_thuc");
+                html += renderTechSelect("Kỹ thuật đánh hỏng", "ky_thuat_ket_thuc");
+                html += renderViTriHong();
+            }
+            html += renderDiemRoi();
+            html += renderDoXoay();
+
+            html += `
+                </div>
+                <div class="mt-4 pt-4 border-t flex gap-3 bg-white">
+                    <button onclick="closeModal()" class="flex-1 bg-gray-200 text-gray-800 font-bold py-4 rounded-xl">HỦY</button>
+                    <button onclick="savePtEntry()" class="flex-[2] bg-blue-600 text-white font-bold py-4 rounded-xl shadow-md uppercase"><i class="fas fa-save mr-2"></i>Lưu điểm</button>
+                </div>
+            `;
+            
             showModal(html);
+            setTimeout(() => {
+                const newScrollEl = document.getElementById('pt-entry-scroll');
+                if (newScrollEl) newScrollEl.scrollTop = currentScroll;
+            }, 0);
         }
 
-        async function addPoint(loai_diem, ky_thuat, nhom, phuong_thuc) {
+        window.updatePtState = function(key, val) {
+            window.ptEntryState[key] = val;
+            renderPtEntryForm();
+        };
+        window.updatePtStateDacTinh = function(key, val) {
+            window.ptEntryState.dac_tinh[key] = val;
+            renderPtEntryForm();
+        };
+        window.updateDiemRoi = function(ngang, dai) {
+            window.ptEntryState.dac_tinh.diem_roi_ngang = ngang;
+            window.ptEntryState.dac_tinh.do_dai = dai;
+            renderPtEntryForm();
+        };
+
+        window.savePtEntry = async function() {
+            const s = window.ptEntryState;
+            if (!s.nguoi_ket_thuc) { showToast('Vui lòng chọn người kết thúc/đánh hỏng', 'error'); return; }
+            if (!s.ky_thuat_ket_thuc) { showToast('Vui lòng chọn kỹ thuật', 'error'); return; }
+            if (s.tinh_chat === 'forced_error') {
+                if (!s.nguoi_kien_tao) { showToast('Vui lòng chọn người kiến tạo', 'error'); return; }
+                if (!s.ky_thuat_kien_tao) { showToast('Vui lòng chọn kỹ thuật kiến tạo', 'error'); return; }
+                if (!s.dac_tinh.vi_tri_hong) { showToast('Vui lòng chọn vị trí hỏng', 'error'); return; }
+            }
+            if (s.tinh_chat === 'unforced_error') {
+                if (!s.dac_tinh.vi_tri_hong) { showToast('Vui lòng chọn vị trí hỏng', 'error'); return; }
+            }
+            
             const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
             const game = match.chi_tiet_game[appState.currentGameIndex];
-            const state = calculateCurrentState(game.ty_so_bat_dau, game.danh_sach_diem);
             
-            if(isGameFinished(state.p1, state.p2) && !confirm('Game đã đủ điều kiện kết thúc. Bạn có chắc chắn muốn nhập thêm điểm?')) return;
-            
-            game.danh_sach_diem.push({
-                thu_tu_diem: game.danh_sach_diem.length + 1,
-                ty_so_hien_tai: '', // calculated below
-                loai_diem: loai_diem,
-                nhom: nhom,
-                ky_thuat: ky_thuat,
-                phuong_thuc: phuong_thuc,
-                nguoi_giao_bong: '' // calculated below
-            });
+            if (s.isEdit) {
+                const pt = game.danh_sach_diem[s.editIdx];
+                pt.loai_diem = s.loai_diem;
+                pt.chi_tiet_pha_bong = {
+                    tinh_chat: s.tinh_chat,
+                    nguoi_ket_thuc: s.nguoi_ket_thuc,
+                    ky_thuat_ket_thuc: s.ky_thuat_ket_thuc,
+                    nguoi_kien_tao: s.nguoi_kien_tao,
+                    ky_thuat_kien_tao: s.ky_thuat_kien_tao,
+                    dac_tinh: {
+                        diem_roi_ngang: s.dac_tinh.diem_roi_ngang || null,
+                        do_dai: s.dac_tinh.do_dai || null,
+                        do_xoay: s.dac_tinh.do_xoay || null,
+                        vi_tri_hong: s.dac_tinh.vi_tri_hong || null
+                    }
+                };
+                validatePoint(pt);
+            } else {
+                const state = calculateCurrentState(game.ty_so_bat_dau, game.danh_sach_diem);
+                if(isGameFinished(state.p1, state.p2) && !confirm('Game đã đủ điều kiện kết thúc. Bạn có chắc chắn muốn nhập thêm điểm?')) return;
+                
+                const newPt = {
+                    thu_tu_diem: game.danh_sach_diem.length + 1,
+                    ty_so_hien_tai: '',
+                    loai_diem: s.loai_diem,
+                    nguoi_giao_bong: '',
+                    chi_tiet_pha_bong: {
+                        tinh_chat: s.tinh_chat,
+                        nguoi_ket_thuc: s.nguoi_ket_thuc,
+                        ky_thuat_ket_thuc: s.ky_thuat_ket_thuc,
+                        nguoi_kien_tao: s.nguoi_kien_tao,
+                        ky_thuat_kien_tao: s.ky_thuat_kien_tao,
+                        dac_tinh: {
+                            diem_roi_ngang: s.dac_tinh.diem_roi_ngang || null,
+                            do_dai: s.dac_tinh.do_dai || null,
+                            do_xoay: s.dac_tinh.do_xoay || null,
+                            vi_tri_hong: s.dac_tinh.vi_tri_hong || null
+                        }
+                    }
+                };
+                validatePoint(newPt);
+                game.danh_sach_diem.push(newPt);
+            }
             
             recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
             await saveToGithub();
-            renderView('gameTimeline');
-        }
-
-        async function undoLastPoint() {
-            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
-            const game = match.chi_tiet_game[appState.currentGameIndex];
-            if(game.danh_sach_diem.length===0) return;
-            game.danh_sach_diem.pop();
-            recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
-            await saveToGithub();
-            renderView('gameTimeline');
-        }
-
-        async function deletePoint(idx) {
-            if(!confirm('Xóa điểm này sẽ tính lại tỷ số các điểm sau. Tiếp tục?')) return;
-            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
-            const game = match.chi_tiet_game[appState.currentGameIndex];
-            game.danh_sach_diem.splice(idx, 1);
-            recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
-            await saveToGithub();
+            closeModal();
             renderView('gameTimeline');
         }
 
@@ -721,45 +1091,34 @@
             await saveToGithub();
             renderView('gameTimeline');
         }
-        function openEditPointModal(idx) {
+
+        window.openEditPointModal = function(idx) {
             const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
             const game = match.chi_tiet_game[appState.currentGameIndex];
             const pt = game.danh_sach_diem[idx];
             
-            let techOptions = '';
-            Object.keys(appState.dict.ky_thuat_rally).forEach(k => techOptions += `<option value="nhom_ky_thuat|${k}" ${pt.ky_thuat===k?'selected':''}>Kỹ thuật: ${appState.dict.ky_thuat_rally[k]}</option>`);
-            Object.keys(appState.dict.loai_giao_bong).forEach(k => techOptions += `<option value="nhom_giao_bong|${k}" ${pt.ky_thuat===k?'selected':''}>Giao bóng: ${appState.dict.loai_giao_bong[k]}</option>`);
+            window.ptEntryState = {
+                isEdit: true,
+                editIdx: idx,
+                loai_diem: pt.loai_diem,
+                tinh_chat: pt.chi_tiet_pha_bong ? pt.chi_tiet_pha_bong.tinh_chat : 'winner',
+                nguoi_ket_thuc: pt.chi_tiet_pha_bong ? pt.chi_tiet_pha_bong.nguoi_ket_thuc : match.thong_tin.doi_thu_1,
+                ky_thuat_ket_thuc: pt.chi_tiet_pha_bong ? pt.chi_tiet_pha_bong.ky_thuat_ket_thuc : '',
+                nguoi_kien_tao: pt.chi_tiet_pha_bong ? pt.chi_tiet_pha_bong.nguoi_kien_tao : '',
+                ky_thuat_kien_tao: pt.chi_tiet_pha_bong ? pt.chi_tiet_pha_bong.ky_thuat_kien_tao : '',
+                dac_tinh: {
+                    do_xoay: '',
+                    diem_roi_ngang: '',
+                    do_dai: '',
+                    vi_tri_hong: ''
+                }
+            };
             
-            showModal(`
-                <h3 class="text-lg font-bold mb-4">Sửa điểm #${idx+1}</h3>
-                <form onsubmit="handleEditPoint(event, ${idx})" class="space-y-4">
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">Kết quả điểm</label>
-                        <select id="ep_loai" class="w-full border rounded p-2" onchange="updateEditPhuongThuc(this.value)">
-                            <option value="thang" ${pt.loai_diem==='thang'?'selected':''}>Điểm thắng</option>
-                            <option value="thua" ${pt.loai_diem==='thua'?'selected':''}>Điểm thua</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">Phương thức</label>
-                        <select id="ep_phuongthuc" class="w-full border rounded p-2">
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">Loại kỹ thuật / Giao bóng</label>
-                        <select id="ep_kythuat" class="w-full border rounded p-2">
-                            ${techOptions}
-                        </select>
-                    </div>
-                    <div class="flex gap-2 pt-2">
-                        <button type="button" onclick="closeModal()" class="flex-1 bg-gray-200 py-2 rounded font-medium">Hủy</button>
-                        <button type="submit" class="flex-1 bg-blue-600 text-white py-2 rounded font-medium">Cập nhật</button>
-                    </div>
-                </form>
-            `);
-            window._tempPtPhuongThuc = pt.phuong_thuc;
-            updateEditPhuongThuc(pt.loai_diem);
-        }
+            if (pt.chi_tiet_pha_bong && pt.chi_tiet_pha_bong.dac_tinh) {
+                window.ptEntryState.dac_tinh = { ...pt.chi_tiet_pha_bong.dac_tinh };
+            }
+            renderPtEntryForm();
+        };
 
         window.updateEditPhuongThuc = function(loai_diem) {
             const select = document.getElementById('ep_phuongthuc');
@@ -779,32 +1138,177 @@
             window._tempPtPhuongThuc = null;
         }
 
-        async function handleEditPoint(e, idx) {
-            e.preventDefault();
-            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
-            const game = match.chi_tiet_game[appState.currentGameIndex];
-            const pt = game.danh_sach_diem[idx];
-            
-            const loai = document.getElementById('ep_loai').value;
-            const ktVal = document.getElementById('ep_kythuat').value.split('|');
-            const ptPhuongThuc = document.getElementById('ep_phuongthuc').value;
-            
-            pt.loai_diem = loai;
-            pt.phuong_thuc = ptPhuongThuc;
-            pt.nhom = ktVal[0];
-            pt.ky_thuat = ktVal[1];
-            
-            recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
-            await saveToGithub();
-            closeModal();
-            renderView('gameTimeline');
-        }
+
 
         // --- DASHBOARD ---
-        function renderDashboard(container) {
+function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
+    const s = {
+        matches: { total: 0, win: 0 },
+        games: { total: 0, win: 0 },
+        points: { total: 0, win: 0 },
+        
+        winnerByMe: 0, forcedErrorByMe: 0, unforcedErrorByMe: 0,
+        winnerByOpp: 0, forcedErrorByOpp: 0, unforcedErrorByOpp: 0,
+        
+        technique: {}, 
+        assistTech: {},
+        
+        serve: { total: 0, win: 0 },
+        receive: { total: 0, win: 0 },
+        serveType: {},
+        
+        maxWinStreak: 0, maxForcedStreak: 0, maxUnforcedStreak: 0,
+        
+        gameSummary: [], 
+        
+        heatmapWinner: { ngan_trai: 0, ngan_giua: 0, ngan_phai: 0, dai_trai: 0, dai_giua: 0, dai_phai: 0 },
+        heatmapLost: { ngan_trai: 0, ngan_giua: 0, ngan_phai: 0, dai_trai: 0, dai_giua: 0, dai_phai: 0 },
+        spin: {},
+        errorLocation: {}
+    };
+
+    filteredMatches.forEach(m => {
+        s.matches.total++;
+        let mWins = 0, mLoses = 0;
+        const me = perspective === 'doi_thu_1' ? m.thong_tin.doi_thu_1 : m.thong_tin.doi_thu_2;
+
+        if (m.chi_tiet_game) m.chi_tiet_game.forEach((g, gIndex) => {
+            s.games.total++;
+            let gWins = 0, gLoses = 0;
+            let currentWinStreak = 0;
+            let currentForcedStreak = 0;
+            let currentUnforcedStreak = 0;
+            
+            let gWinnerMe = 0, gForcedMe = 0, gUnforcedMe = 0;
+
+            if (g.danh_sach_diem) g.danh_sach_diem.forEach(pt => {
+                const c = pt.chi_tiet_pha_bong;
+                if (!c) return;
+                
+                s.points.total++;
+                const isWin = perspective === 'doi_thu_1' ? pt.loai_diem === 'thang' : pt.loai_diem === 'thua';
+                if (isWin) { s.points.win++; gWins++; } else { gLoses++; }
+
+                // Serve
+                if (pt.nguoi_giao_bong === me) {
+                    s.serve.total++;
+                    if (isWin) s.serve.win++;
+                } else {
+                    s.receive.total++;
+                    if (isWin) s.receive.win++;
+                }
+
+                // Streaks
+                if (isWin) {
+                    currentWinStreak++;
+                    if (currentWinStreak > s.maxWinStreak) s.maxWinStreak = currentWinStreak;
+                } else currentWinStreak = 0;
+
+                if (isWin && c.tinh_chat === 'forced_error') {
+                    currentForcedStreak++;
+                    if (currentForcedStreak > s.maxForcedStreak) s.maxForcedStreak = currentForcedStreak;
+                } else currentForcedStreak = 0;
+
+                if (!isWin && c.tinh_chat === 'unforced_error') {
+                    currentUnforcedStreak++;
+                    if (currentUnforcedStreak > s.maxUnforcedStreak) s.maxUnforcedStreak = currentUnforcedStreak;
+                } else currentUnforcedStreak = 0;
+
+                // Tinh chat
+                if (isWin) {
+                    if (c.tinh_chat === 'winner') { s.winnerByMe++; gWinnerMe++; }
+                    if (c.tinh_chat === 'forced_error') { s.forcedErrorByMe++; gForcedMe++; }
+                    if (c.tinh_chat === 'unforced_error') s.unforcedErrorByOpp++;
+                } else {
+                    if (c.tinh_chat === 'winner') s.winnerByOpp++;
+                    if (c.tinh_chat === 'forced_error') s.forcedErrorByOpp++;
+                    if (c.tinh_chat === 'unforced_error') { s.unforcedErrorByMe++; gUnforcedMe++; }
+                }
+
+                // Tech & Assist
+                const techFinish = c.ky_thuat_ket_thuc;
+                const techAssist = c.ky_thuat_kien_tao;
+                
+                if (techFinish && c.nguoi_ket_thuc === me) {
+                    if (!s.technique[techFinish]) s.technique[techFinish] = { total: 0, winnerByMe: 0, forcedErrorByMe: 0, unforcedErrorByMe: 0 };
+                    s.technique[techFinish].total++;
+                    if (c.tinh_chat === 'winner') s.technique[techFinish].winnerByMe++;
+                    if (c.tinh_chat === 'unforced_error') s.technique[techFinish].unforcedErrorByMe++;
+                    if (c.tinh_chat === 'forced_error' && c.nguoi_ket_thuc === me) {
+                        // Actually if I hit a forced error, it means I made the error. So forcedErrorByMe?
+                        // "forcedErrorByMe" usually means I FORCED the opponent into an error. 
+                        // If I made a forced error, it's forced error against me.
+                        // I will track my own errors separately if needed, but let's keep it simple: unforced is what matters for negative stats.
+                    }
+                }
+                
+                if (techAssist && c.nguoi_kien_tao === me) {
+                    if (!s.assistTech[techAssist]) s.assistTech[techAssist] = { totalAssist: 0, forcedErrorOpponent: 0, winner: 0 };
+                    s.assistTech[techAssist].totalAssist++;
+                    if (c.tinh_chat === 'forced_error') s.assistTech[techAssist].forcedErrorOpponent++;
+                    if (c.tinh_chat === 'winner') s.assistTech[techAssist].winner++;
+                }
+                
+                // Serve Type
+                if (pt.nguoi_giao_bong === me && (c.tinh_chat === 'winner' || c.tinh_chat === 'unforced_error' || c.tinh_chat === 'forced_error')) {
+                    // Wait, we don't always know the serve type of EVERY point unless it's logged as the ending/assist tech.
+                    // But if it's logged as a serve, we can track it.
+                    if (appState.dict.loai_giao_bong[techFinish]) {
+                        if (!s.serveType[techFinish]) s.serveType[techFinish] = { total: 0, win: 0 };
+                        s.serveType[techFinish].total++;
+                        if (isWin) s.serveType[techFinish].win++;
+                    }
+                }
+
+                // Heatmap & Spin
+                const dac_tinh = c.dac_tinh;
+                if (dac_tinh) {
+                    if (dac_tinh.diem_roi_ngang && dac_tinh.do_dai) {
+                        const key = `${dac_tinh.do_dai}_${dac_tinh.diem_roi_ngang}`;
+                        if (isWin) s.heatmapWinner[key] = (s.heatmapWinner[key] || 0) + 1;
+                        else s.heatmapLost[key] = (s.heatmapLost[key] || 0) + 1;
+                    }
+                    if (dac_tinh.do_xoay) {
+                        if (!s.spin[dac_tinh.do_xoay]) s.spin[dac_tinh.do_xoay] = { total: 0, win: 0, forcedError: 0 };
+                        s.spin[dac_tinh.do_xoay].total++;
+                        if (isWin) s.spin[dac_tinh.do_xoay].win++;
+                        if (isWin && c.tinh_chat === 'forced_error') s.spin[dac_tinh.do_xoay].forcedError++;
+                    }
+                    if (dac_tinh.vi_tri_hong && c.nguoi_ket_thuc === me) {
+                        if (s.errorLocation[dac_tinh.vi_tri_hong] === undefined) s.errorLocation[dac_tinh.vi_tri_hong] = 0;
+                        if (true) {
+                            s.errorLocation[dac_tinh.vi_tri_hong]++;
+                        }
+                    }
+                }
+            });
+            if (gWins > gLoses) mWins++; else if (gLoses > gWins) mLoses++;
+            
+            s.gameSummary.push({
+                match: `${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}`,
+                game_so: g.game_so,
+                pts: g.danh_sach_diem ? g.danh_sach_diem.length : 0,
+                winnerMe: gWinnerMe,
+                forcedMe: gForcedMe,
+                unforcedMe: gUnforcedMe,
+                isWin: gWins > gLoses
+            });
+        });
+
+        if (mWins > mLoses) s.matches.win++;
+    });
+
+    return s;
+}
+
+function renderDashboard(container) {
     if(appState.matches.length === 0) {
         container.innerHTML = `<div class="text-center py-10 text-gray-500">Chưa có dữ liệu thống kê.</div>`;
         return;
+    }
+    
+    if (!appState.dashboardPerspective) {
+        appState.dashboardPerspective = 'doi_thu_1';
     }
     
     if (!appState.dashboardFilter) {
@@ -824,340 +1328,311 @@
         if (f.doi_thu !== 'all' && m.thong_tin.doi_thu_1 !== f.doi_thu && m.thong_tin.doi_thu_2 !== f.doi_thu) return false;
         return true;
     });
+    
+    // Build filter HTML
+    let matchOpts = `<option value="all">Tất cả trận</option>`;
+    appState.matches.forEach(m => matchOpts += `<option value="${m.id_tran_dau}" ${f.matchId===m.id_tran_dau?'selected':''}>${m.thong_tin.ngay_thi_dau}: ${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}</option>`);
 
-    const uniqueLoaiHinh = [...new Set(appState.matches.map(m => m.thong_tin.loai_hinh).filter(Boolean))];
-    const uniqueDoiThu = [...new Set(appState.matches.map(m => m.thong_tin.doi_thu_1).concat(appState.matches.map(m => m.thong_tin.doi_thu_2)).filter(Boolean))];
-    const matchOptions = appState.matches.map(m => `<option value="${m.id_tran_dau}" ${f.matchId === m.id_tran_dau ? 'selected' : ''}>${m.thong_tin.ngay_thi_dau} - ${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}</option>`).join('');
+    let typeOpts = `<option value="all">Tất cả</option>`;
+    [...new Set(appState.matches.map(m=>m.thong_tin.loai_hinh))].forEach(t => typeOpts += `<option value="${t}" ${f.loai_hinh===t?'selected':''}>${t}</option>`);
 
-    let html = `<h2 class="text-xl font-bold mb-4">Dashboard Phân Tích</h2>`;
+    let oppOpts = `<option value="all">Tất cả</option>`;
+    [...new Set(appState.matches.map(m=>m.thong_tin.doi_thu_2))].forEach(o => oppOpts += `<option value="${o}" ${f.doi_thu===o?'selected':''}>${o}</option>`);
+    
+    let name1 = 'Đối thủ 1';
+    let name2 = 'Đối thủ 2';
+    if (filteredMatches.length > 0) {
+        name1 = filteredMatches[0].thong_tin.doi_thu_1 || 'Đối thủ 1';
+        // If filtering by specific opponent, use that opponent's name, otherwise use the first one's opponent
+        name2 = f.doi_thu !== 'all' ? f.doi_thu : (filteredMatches[0].thong_tin.doi_thu_2 || 'Đối thủ 2');
+    }
 
-    html += `
-        <div class="bg-white p-4 rounded-xl shadow-sm border border-gray-200 mb-6 space-y-3">
-            <div class="flex justify-between items-center">
-                <h3 class="font-semibold text-sm text-gray-700"><i class="fas fa-filter"></i> Lọc dữ liệu</h3>
-                <button onclick="clearDashboardFilter()" class="text-xs text-blue-600 hover:underline">Xóa bộ lọc</button>
+    let html = `
+        <div class="fixed top-14 left-0 right-0 z-10 bg-white border-b px-4 py-3 shadow-sm flex flex-col gap-3">
+            <div class="max-w-3xl mx-auto flex gap-2 w-full">
+                <button onclick="updateDashboardPerspective('doi_thu_1')" class="flex-1 py-1.5 text-sm font-bold rounded-lg transition ${appState.dashboardPerspective === 'doi_thu_1' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600'}">Đối thủ 1</button>
+                <button onclick="updateDashboardPerspective('doi_thu_2')" class="flex-1 py-1.5 text-sm font-bold rounded-lg transition ${appState.dashboardPerspective === 'doi_thu_2' ? 'bg-blue-600 text-white shadow-sm' : 'bg-gray-100 text-gray-600'}">Đối thủ 2</button>
             </div>
-            <div class="grid grid-cols-2 gap-3">
-                <div class="col-span-2">
-                    <label class="block text-xs text-gray-500 mb-1">Trận đấu cụ thể</label>
-                    <select id="df_matchId" class="w-full border rounded p-1.5 text-sm" onchange="updateDashboardFilter('matchId', this.value)">
-                        <option value="all">-- Tất cả trận đấu --</option>
-                        ${matchOptions}
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-500 mb-1">Từ ngày</label>
-                    <input type="date" id="df_fromDate" class="w-full border rounded p-1.5 text-sm" value="${f.fromDate}" onchange="updateDashboardFilter('fromDate', this.value)">
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-500 mb-1">Đến ngày</label>
-                    <input type="date" id="df_toDate" class="w-full border rounded p-1.5 text-sm" value="${f.toDate}" onchange="updateDashboardFilter('toDate', this.value)">
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-500 mb-1">Loại hình</label>
-                    <select id="df_loai_hinh" class="w-full border rounded p-1.5 text-sm" onchange="updateDashboardFilter('loai_hinh', this.value)">
-                        <option value="all">-- Tất cả --</option>
-                        ${uniqueLoaiHinh.map(lh => `<option value="${lh}" ${f.loai_hinh === lh ? 'selected' : ''}>${appState.dict?.loai_hinh?.[lh] || lh}</option>`).join('')}
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-xs text-gray-500 mb-1">Đối thủ</label>
-                    <select id="df_doi_thu" class="w-full border rounded p-1.5 text-sm" onchange="updateDashboardFilter('doi_thu', this.value)">
-                        <option value="all">-- Tất cả --</option>
-                        ${uniqueDoiThu.map(dt => `<option value="${dt}" ${f.doi_thu === dt ? 'selected' : ''}>${dt}</option>`).join('')}
-                    </select>
-                </div>
+            <div class="text-center text-xs font-semibold text-gray-700">Đang phân tích theo góc nhìn: <span class="text-blue-600">${appState.dashboardPerspective === 'doi_thu_1' ? name1 : name2}</span></div>
+            <div class="max-w-3xl mx-auto flex gap-2 overflow-x-auto no-scrollbar items-center">
+                <select id="dbFilterMatch" onchange="updateDashboardFilter()" class="border rounded p-1.5 text-xs bg-gray-50 min-w-[120px]">${matchOpts}</select>
+                <input type="date" id="dbFilterFrom" onchange="updateDashboardFilter()" value="${f.fromDate}" class="border rounded p-1.5 text-xs bg-gray-50">
+                <input type="date" id="dbFilterTo" onchange="updateDashboardFilter()" value="${f.toDate}" class="border rounded p-1.5 text-xs bg-gray-50">
+                <select id="dbFilterType" onchange="updateDashboardFilter()" class="border rounded p-1.5 text-xs bg-gray-50 min-w-[90px]">${typeOpts}</select>
+                <select id="dbFilterOpp" onchange="updateDashboardFilter()" class="border rounded p-1.5 text-xs bg-gray-50 min-w-[90px]">${oppOpts}</select>
             </div>
         </div>
+        <div class="mt-44 px-4 max-w-3xl mx-auto space-y-6 pb-20">
     `;
 
     if (filteredMatches.length === 0) {
-        html += `<div class="text-center py-10 text-gray-500">Không có dữ liệu phù hợp với tiêu chí lọc.</div>`;
+        html += `<div class="text-center py-10 text-gray-500">Không có dữ liệu phù hợp với bộ lọc.</div></div>`;
         container.innerHTML = html;
         return;
     }
 
-    let totalWin = 0, totalLose = 0;
-    let serveWin = 0, serveTotal = 0, receiveWin = 0, receiveTotal = 0;
-    
-    let rallyStats = {};
-    let serveStats = {};
-    let gameAnalysis = [];
+    const s = calculateDashboardStats(filteredMatches, appState.dashboardPerspective);
+    const toPct = (num, den) => den > 0 ? Math.round((num/den)*100) : 0;
+    const bar = (pct, color='bg-blue-600') => `<div class="w-full bg-gray-200 rounded-full h-2 mt-1"><div class="${color} h-2 rounded-full" style="width: ${pct}%"></div></div>`;
+    const getName = (k) => appState.dict.ky_thuat_rally[k] || appState.dict.loai_giao_bong[k] || k;
 
-    if (appState.dict && appState.dict.ky_thuat_rally) {
-        Object.keys(appState.dict.ky_thuat_rally).forEach(k => rallyStats[k] = { toi_ghi_diem: 0, doi_thu_danh_hong: 0, toi_danh_hong: 0, doi_thu_ghi_diem: 0, total: 0, win: 0, lose: 0 });
-    }
-    if (appState.dict && appState.dict.loai_giao_bong) {
-        Object.keys(appState.dict.loai_giao_bong).forEach(k => serveStats[k] = { toi_ghi_diem: 0, doi_thu_danh_hong: 0, toi_danh_hong: 0, doi_thu_ghi_diem: 0, total: 0, win: 0, lose: 0 });
-    }
-
-    let globalMaxWinStreakObj = null;
-    let globalMaxLoseStreakObj = null;
-
-    filteredMatches.forEach(m => {
-        const dt1 = m.thong_tin.doi_thu_1;
-        (m.chi_tiet_game || []).forEach(g => {
-            let gWin = 0, gLose = 0;
-            let gServeTotal = 0, gServeWin = 0;
-            let gReceiveTotal = 0, gReceiveWin = 0;
-
-            let curWinStreak = 0, maxWinStreak = 0;
-            let winStart = 0, winEnd = 0, maxWinStart = 0, maxWinEnd = 0;
-            let curLoseStreak = 0, maxLoseStreak = 0;
-            let loseStart = 0, loseEnd = 0, maxLoseStart = 0, maxLoseEnd = 0;
-
-            const calcScoreAt = (idx) => {
-                if (idx < 0) return g.ty_so_bat_dau || "0-0";
-                if (idx >= g.danh_sach_diem.length) return g.danh_sach_diem[g.danh_sach_diem.length-1].ty_so_hien_tai;
-                return g.danh_sach_diem[idx].ty_so_hien_tai;
-            };
-
-            (g.danh_sach_diem || []).forEach((pt, idx) => {
-                const isWin = pt.loai_diem === 'thang';
-                if(isWin) {
-                    totalWin++; gWin++;
-                    curWinStreak++;
-                    if (curWinStreak === 1) winStart = pt.thu_tu_diem;
-                    winEnd = pt.thu_tu_diem;
-                    if (curWinStreak > maxWinStreak) {
-                        maxWinStreak = curWinStreak; maxWinStart = winStart; maxWinEnd = winEnd;
-                    }
-                    curLoseStreak = 0;
-                } else {
-                    totalLose++; gLose++;
-                    curLoseStreak++;
-                    if (curLoseStreak === 1) loseStart = pt.thu_tu_diem;
-                    loseEnd = pt.thu_tu_diem;
-                    if (curLoseStreak > maxLoseStreak) {
-                        maxLoseStreak = curLoseStreak; maxLoseStart = loseStart; maxLoseEnd = loseEnd;
-                    }
-                    curWinStreak = 0;
-                }
-                
-                const phuong_thuc = pt.phuong_thuc || (isWin ? 'toi_ghi_diem' : 'toi_danh_hong');
-
-                if(pt.nhom === 'nhom_ky_thuat' && rallyStats[pt.ky_thuat]) {
-                    rallyStats[pt.ky_thuat].total++;
-                    if (isWin) rallyStats[pt.ky_thuat].win++; else rallyStats[pt.ky_thuat].lose++;
-                    if(rallyStats[pt.ky_thuat][phuong_thuc] !== undefined) rallyStats[pt.ky_thuat][phuong_thuc]++;
-                }
-                if(pt.nhom === 'nhom_giao_bong' && serveStats[pt.ky_thuat]) {
-                    serveStats[pt.ky_thuat].total++;
-                    if (isWin) serveStats[pt.ky_thuat].win++; else serveStats[pt.ky_thuat].lose++;
-                    if(serveStats[pt.ky_thuat][phuong_thuc] !== undefined) serveStats[pt.ky_thuat][phuong_thuc]++;
-                }
-
-                if(pt.nguoi_giao_bong === dt1) {
-                    serveTotal++; gServeTotal++;
-                    if(isWin) { serveWin++; gServeWin++; }
-                } else {
-                    receiveTotal++; gReceiveTotal++;
-                    if(isWin) { receiveWin++; gReceiveWin++; }
-                }
-            });
-
-            const winObj = { len: maxWinStreak, match: `${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}`, game: g.game_so, startPt: maxWinStart, endPt: maxWinEnd, startScore: calcScoreAt(maxWinStart-2), endScore: calcScoreAt(maxWinEnd-1) };
-            const loseObj = { len: maxLoseStreak, match: `${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}`, game: g.game_so, startPt: maxLoseStart, endPt: maxLoseEnd, startScore: calcScoreAt(maxLoseStart-2), endScore: calcScoreAt(maxLoseEnd-1) };
-
-            if (!globalMaxWinStreakObj || winObj.len > globalMaxWinStreakObj.len) globalMaxWinStreakObj = winObj;
-            if (!globalMaxLoseStreakObj || loseObj.len > globalMaxLoseStreakObj.len) globalMaxLoseStreakObj = loseObj;
-
-            gameAnalysis.push({
-                matchVs: `${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}`,
-                matchDate: m.thong_tin.ngay_thi_dau,
-                gameSo: g.game_so,
-                tySoBatDau: g.ty_so_bat_dau || "0-0",
-                tySoChungCuoc: (g.danh_sach_diem && g.danh_sach_diem.length > 0) ? g.danh_sach_diem[g.danh_sach_diem.length-1].ty_so_hien_tai : (g.ty_so_bat_dau || "0-0"),
-                tongDiem: g.danh_sach_diem.length,
-                gWin, gLose, gServeWin, gServeTotal, gReceiveWin, gReceiveTotal,
-                maxWinStreak, maxLoseStreak
-            });
-        });
-    });
-
+    // --- NHÓM 1: Score & Technique ---
     html += `
-        <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-blue-600 text-white p-4 rounded-xl shadow">
-                <div class="text-sm opacity-80">Tổng Điểm Thắng</div>
-                <div class="text-3xl font-black">${totalWin}</div>
+        <div>
+            <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase">1. Hiệu suất ghi điểm</h2>
+            <div class="grid grid-cols-2 gap-3 mb-4">
+                <div class="bg-blue-50 border border-blue-100 p-4 rounded-xl text-center shadow-sm">
+                    <div class="text-xs font-bold text-blue-600 uppercase mb-1">Win Rate</div>
+                    <div class="text-3xl font-black text-blue-800">${toPct(s.points.win, s.points.total)}%</div>
+                    <div class="text-xs text-gray-500 mt-1">${s.points.win} / ${s.points.total} điểm</div>
+                </div>
+                <div class="bg-indigo-50 border border-indigo-100 p-4 rounded-xl text-center shadow-sm">
+                    <div class="text-xs font-bold text-indigo-600 uppercase mb-1">Tỷ lệ Giao bóng ăn điểm</div>
+                    <div class="text-3xl font-black text-indigo-800">${toPct(s.serve.win, s.serve.total)}%</div>
+                    <div class="text-xs text-gray-500 mt-1">${s.serve.win} / ${s.serve.total} giao bóng</div>
+                </div>
             </div>
-            <div class="bg-yellow-500 text-white p-4 rounded-xl shadow">
-                <div class="text-sm opacity-80">Tổng Điểm Thua</div>
-                <div class="text-3xl font-black">${totalLose}</div>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow border border-gray-100">
-                <div class="text-xs text-gray-500 font-semibold uppercase mb-1">Mình Giao Bóng</div>
-                <div class="text-2xl font-bold text-gray-800">${serveTotal>0 ? Math.round(serveWin/serveTotal*100) : 0}%</div>
-                <div class="text-xs text-gray-400">Thắng ${serveWin}/${serveTotal}</div>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow border border-gray-100">
-                <div class="text-xs text-gray-500 font-semibold uppercase mb-1">Mình Đỡ Giao</div>
-                <div class="text-2xl font-bold text-gray-800">${receiveTotal>0 ? Math.round(receiveWin/receiveTotal*100) : 0}%</div>
-                <div class="text-xs text-gray-400">Thắng ${receiveWin}/${receiveTotal}</div>
+            
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">TÍNH CHẤT ĐIỂM (TÔI ĐÁNH)</h3>
+                <div class="grid grid-cols-3 gap-2 text-center mb-4">
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Winner</div><div class="font-black text-green-600 text-2xl">${s.winnerByMe}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Ép đối thủ đánh hỏng</div><div class="font-black text-blue-600 text-2xl">${s.forcedErrorByMe}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Bị ép nên tự đánh hỏng</div><div class="font-black text-red-600 text-2xl">${s.unforcedErrorByMe}</div></div>
+                </div>
             </div>
         </div>
     `;
 
-    const formatPct = (val, total, grandTotal) => {
-        if (grandTotal === 0) return `0 <span class="text-gray-400 font-normal">(0%)</span>`;
-        const pct = Math.round(val / grandTotal * 100);
-        return `${val} <span class="text-gray-500 font-normal">(${pct}%)</span>`;
-    };
+    // --- NHÓM 5: TACTICAL ANALYTICS ---
+    html += `<div><h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">2. Tactical Analytics</h2>`;
+    
+    // Winner Analysis
+    const topWinner = Object.keys(s.technique).sort((a,b)=>s.technique[b].winnerByMe - s.technique[a].winnerByMe).filter(k => s.technique[k].winnerByMe > 0);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">WINNER ANALYSIS (Theo kỹ thuật)</h3>`;
+    if(topWinner.length>0) {
+        topWinner.forEach(k => {
+            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-green-600">${s.technique[k].winnerByMe}</span></div>`;
+        });
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu Winner.</div>`;
+    }
+    html += `</div>`;
 
-    const renderStatTable = (title, statsDict, dictMap) => {
-        let hasData = false;
-        let tableHtml = `<h3 class="font-bold text-gray-700 mb-3">${title}</h3><div class="overflow-x-auto mb-6 bg-white rounded-lg shadow-sm border border-gray-100">
-            <table class="w-full text-left text-xs">
-                <thead class="bg-gray-50 border-b">
-                    <tr>
-                        <th class="p-2 border-r font-semibold text-gray-600" rowspan="2">Loại</th>
-                        <th class="p-2 border-r text-center font-semibold text-blue-700" colspan="2">Điểm Thắng</th>
-                        <th class="p-2 text-center font-semibold text-red-600" colspan="2">Điểm Thua</th>
-                    </tr>
-                    <tr class="bg-gray-50 border-b">
-                        <th class="p-2 border-r border-t text-center text-blue-600">Tôi ghi điểm</th>
-                        <th class="p-2 border-r border-t text-center text-blue-500">Đối thủ hỏng</th>
-                        <th class="p-2 border-r border-t text-center text-red-600">Tôi đánh hỏng</th>
-                        <th class="p-2 border-t text-center text-red-500">Đối thủ ghi điểm</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-gray-100">`;
+    // Forced Error
+    const topAssist = Object.keys(s.assistTech).sort((a,b)=>s.assistTech[b].forcedErrorOpponent - s.assistTech[a].forcedErrorOpponent).filter(k => s.assistTech[k].forcedErrorOpponent > 0);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">Ép đối thủ đánh hỏng</h3>`;
+    if(topAssist.length>0) {
+        topAssist.forEach(k => {
+            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-blue-600">${s.assistTech[k].forcedErrorOpponent}</span></div>`;
+        });
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu ép lỗi.</div>`;
+    }
+    html += `</div>`;
+
+    // Unforced Error
+    const topUnforced = Object.keys(s.technique).sort((a,b)=>s.technique[b].unforcedErrorByMe - s.technique[a].unforcedErrorByMe).filter(k => s.technique[k].unforcedErrorByMe > 0);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">Bị ép nên tự đánh hỏng</h3>`;
+    if(topUnforced.length>0) {
+        topUnforced.forEach(k => {
+            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-red-600">${s.technique[k].unforcedErrorByMe}</span></div>`;
+        });
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu tự hỏng.</div>`;
+    }
+    html += `</div>`;
+
+
+    // Assist
+    const allAssist = Object.keys(s.assistTech).sort((a,b)=>s.assistTech[b].totalAssist - s.assistTech[a].totalAssist).filter(k => s.assistTech[k].totalAssist > 0);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">HIỆU QUẢ KIẾN TẠO (ASSIST)</h3>`;
+    if(allAssist.length>0) {
+        allAssist.forEach(k => {
+            const obj = s.assistTech[k];
+            html += `
+                <div class="py-3 border-b last:border-0">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-bold text-sm text-gray-800">${getName(k)}</span>
+                        <span class="text-xs text-gray-500">${obj.totalAssist} lần kiến tạo</span>
+                    </div>
+                    <div class="flex gap-2">
+                        <div class="flex-1 bg-gray-50 border rounded p-2 text-center">
+                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">Chuyển hóa Winner</div>
+                            <div class="font-black text-green-600">${toPct(obj.winner, obj.totalAssist)}%</div>
+                        </div>
+                        <div class="flex-1 bg-gray-50 border rounded p-2 text-center">
+                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">Tỷ lệ Ép lỗi</div>
+                            <div class="font-black text-blue-600">${toPct(obj.forcedErrorOpponent, obj.totalAssist)}%</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu kiến tạo.</div>`;
+    }
+    html += `</div>`;
+
+    // Heatmap
+    const rHeatmap = (data, title, overlayColorClass, reverseCols = false, reverseRows = false) => {
+        const total = Object.values(data).reduce((a,b)=>a+b,0) || 1;
+        const cell = (k) => {
+            const c = data[k]||0; const pct = Math.round(c/total*100);
+            const textColor = c > 0 ? (pct > 40 ? 'text-white' : 'text-gray-900') : 'text-gray-400';
+            const overlayOp = c > 0 ? (pct / 100).toFixed(2) : '0';
+            return `<div class="border p-2 flex flex-col items-center justify-center h-20 bg-gray-50 relative overflow-hidden"><div class="absolute inset-0 ${overlayColorClass}" style="opacity: ${overlayOp}"></div><span class="relative z-10 font-bold text-lg ${textColor}">${c}</span><span class="relative z-10 text-[10px] font-semibold ${textColor}">${pct}%</span></div>`;
+        };
+        const cols = reverseCols ? ['phai', 'giua', 'trai'] : ['trai', 'giua', 'phai'];
+        const row1 = reverseRows ? `${cell('ngan_' + cols[0])}${cell('ngan_' + cols[1])}${cell('ngan_' + cols[2])}` : `${cell('dai_' + cols[0])}${cell('dai_' + cols[1])}${cell('dai_' + cols[2])}`;
+        const row2 = reverseRows ? `${cell('dai_' + cols[0])}${cell('dai_' + cols[1])}${cell('dai_' + cols[2])}` : `${cell('ngan_' + cols[0])}${cell('ngan_' + cols[1])}${cell('ngan_' + cols[2])}`;
         
-        Object.keys(statsDict).forEach(k => {
-            const s = statsDict[k];
-            if(s.total === 0) return;
-            hasData = true;
-            tableHtml += `
-                <tr class="hover:bg-gray-50">
-                    <td class="p-2 border-r font-medium text-gray-800">${dictMap[k] || k}</td>
-                    <td class="p-2 border-r text-center text-blue-700 font-bold bg-blue-50/30">${formatPct(s.toi_ghi_diem, totalWin, totalWin)}</td>
-                    <td class="p-2 border-r text-center text-blue-600 bg-blue-50/10">${formatPct(s.doi_thu_danh_hong, totalWin, totalWin)}</td>
-                    <td class="p-2 border-r text-center text-red-700 font-bold bg-red-50/30">${formatPct(s.toi_danh_hong, totalLose, totalLose)}</td>
-                    <td class="p-2 text-center text-red-600 bg-red-50/10">${formatPct(s.doi_thu_ghi_diem, totalLose, totalLose)}</td>
+        const labelRow1 = reverseRows ? 'Ngắn' : 'Dài';
+        const labelRow2 = reverseRows ? 'Dài' : 'Ngắn';
+        
+        return `
+            <div class="flex-1 flex flex-col items-center">
+                <div class="text-xs font-bold text-center mb-2 uppercase text-gray-600">${title}</div>
+                <div class="flex items-stretch">
+                    <div class="flex flex-col justify-around text-[10px] text-gray-500 font-bold mr-1">
+                        <div style="writing-mode: vertical-rl; transform: rotate(180deg);" class="flex-1 flex items-center justify-center">${labelRow1}</div>
+                        <div style="writing-mode: vertical-rl; transform: rotate(180deg);" class="flex-1 flex items-center justify-center">${labelRow2}</div>
+                    </div>
+                    <div class="flex-1">
+                        <div class="grid grid-cols-3 gap-0.5 border bg-gray-200">
+                            ${row1}
+                            ${row2}
+                        </div>
+                        <div class="flex justify-between text-[10px] text-gray-500 mt-1 px-1 font-bold">
+                            <span>${cols[0]==='trai'?'Trái':'Phải'}</span>
+                            <span>Giữa</span>
+                            <span>${cols[2]==='trai'?'Trái':'Phải'}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    };
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-4">ĐIỂM RƠI (HEATMAP)</h3><div class="flex gap-4">${rHeatmap(s.heatmapWinner, 'GHI ĐIỂM (WINNER)', 'bg-blue-600', true, false)}${rHeatmap(s.heatmapLost, 'MẤT ĐIỂM (LỖI)', 'bg-red-600', false, true)}</div></div>`;
+
+    // Spin
+    const totalSpins = Object.values(s.spin).reduce((acc, val) => acc + val.total, 0);
+    if (totalSpins > 0) {
+        html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">PHÂN TÍCH ĐỘ XOÁY</h3><div class="space-y-4">`;
+        Object.keys(s.spin).forEach(k => {
+            const obj = s.spin[k];
+            if (obj.total === 0) return;
+            const titleName = appState.dict.thuoc_tinh_bong.do_xoay[k];
+            html += `
+                <div>
+                    <div class="flex justify-between font-bold text-sm mb-1"><span>${titleName} (${obj.total})</span></div>
+                    <div class="flex gap-4 text-xs">
+                        <div class="flex-1 bg-gray-50 rounded p-2 border"><div class="text-gray-500 mb-1">Tỷ lệ thắng</div><div class="font-black text-green-600">${toPct(obj.win, obj.total)}%</div></div>
+                        <div class="flex-1 bg-gray-50 rounded p-2 border"><div class="text-gray-500 mb-1">Tỷ lệ ép lỗi</div><div class="font-black text-blue-600">${toPct(obj.forcedError, obj.total)}%</div></div>
+                    </div>
+                </div>
+            `;
+        });
+        html += `</div></div>`;
+    }
+
+    // Error Location
+    const errTotals = Object.values(s.errorLocation).reduce((a,b)=>a+b,0);
+    if(errTotals > 0) {
+        html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">VỊ TRÍ HỎNG BÓNG</h3><div class="space-y-3">`;
+        Object.keys(s.errorLocation).forEach(k => {
+            const c = s.errorLocation[k];
+            if (c === 0) return;
+            html += `<div><div class="flex justify-between text-xs mb-1"><span>${appState.dict.thuoc_tinh_loi.vi_tri_hong[k]}</span><span class="font-bold">${c} (${toPct(c, errTotals)}%)</span></div>${bar(toPct(c, errTotals), 'bg-orange-500')}</div>`;
+        });
+        html += `</div></div>`;
+    }
+    
+    // Technique Ranking (Top 10)
+    const allTechKeys = Object.keys(s.technique);
+    if (allTechKeys.length > 0) {
+        html += `
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4 overflow-x-auto">
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">BẢNG XẾP HẠNG KỸ THUẬT (TOP 10)</h3>
+                <table class="w-full text-xs text-left whitespace-nowrap">
+                    <thead class="text-gray-500 bg-gray-50 uppercase border-b">
+                        <tr>
+                            <th class="px-2 py-2">Kỹ thuật</th>
+                            <th class="px-2 py-2 text-center text-green-600">Winner</th>
+                            <th class="px-2 py-2 text-center text-red-600">Tự hỏng</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+        `;
+        const rankedTechs = allTechKeys.sort((a,b) => (s.technique[b].winnerByMe) - (s.technique[a].winnerByMe)).slice(0, 10);
+        rankedTechs.forEach(k => {
+            html += `
+                <tr class="border-b last:border-0">
+                    <td class="px-2 py-2 font-bold">${getName(k)}</td>
+                    <td class="px-2 py-2 text-center font-bold text-green-600">${s.technique[k].winnerByMe}</td>
+                    <td class="px-2 py-2 text-center font-bold text-red-600">${s.technique[k].unforcedErrorByMe}</td>
                 </tr>
             `;
         });
-        
-        tableHtml += `</tbody></table></div>`;
-        if (!hasData) return `<h3 class="font-bold text-gray-700 mb-3">${title}</h3><div class="text-sm text-gray-500 italic mb-6">Chưa có dữ liệu.</div>`;
-        return tableHtml;
-    };
-
-    html += renderStatTable("Hiệu suất Giao bóng (Điểm trực tiếp)", serveStats, appState.dict.loai_giao_bong);
-    html += renderStatTable("Hiệu suất Kỹ Thuật Rally", rallyStats, appState.dict.ky_thuat_rally);
-
-    // Top 3 conclusions for Rally
-    let rallyArr = Object.keys(rallyStats).map(k => ({ name: appState.dict.ky_thuat_rally[k], ...rallyStats[k] })).filter(x => x.total > 0);
-    rallyArr.sort((a,b) => b.win - a.win);
-    const topWin = rallyArr.slice(0,3).filter(x => x.win > 0);
-    rallyArr.sort((a,b) => b.lose - a.lose);
-    const topLose = rallyArr.slice(0,3).filter(x => x.lose > 0);
-
-    html += `<div class="bg-blue-50 p-4 rounded-xl border border-blue-100 mb-4 shadow-sm">
-        <h4 class="font-bold text-blue-800 mb-2"><i class="fas fa-trophy text-yellow-500 mr-1"></i> Top Kỹ thuật Ghi điểm (Thắng)</h4>
-        ${topWin.length ? `<ul class="list-disc pl-5 text-sm text-blue-900 space-y-1">
-            ${topWin.map(x => `<li><strong>${x.name}</strong>: ${x.win} điểm (${Math.round(x.win/totalWin*100)}%)</li>`).join('')}
-        </ul>` : `<div class="text-sm text-blue-700">Chưa có dữ liệu</div>`}
-    </div>`;
-
-    html += `<div class="bg-red-50 p-4 rounded-xl border border-red-100 mb-8 shadow-sm">
-        <h4 class="font-bold text-red-800 mb-2"><i class="fas fa-exclamation-triangle text-orange-500 mr-1"></i> Top Kỹ thuật Mất điểm (Thua)</h4>
-        ${topLose.length ? `<ul class="list-disc pl-5 text-sm text-red-900 space-y-1">
-            ${topLose.map(x => `<li><strong>${x.name}</strong>: ${x.lose} điểm (${Math.round(x.lose/totalLose*100)}%)</li>`).join('')}
-        </ul>` : `<div class="text-sm text-red-700">Chưa có dữ liệu</div>`}
-    </div>`;
-
-    html += `<h3 class="font-bold text-gray-700 mb-3">Chuỗi điểm & Momentum</h3>`;
-    html += `<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">`;
-    if(globalMaxWinStreakObj && globalMaxWinStreakObj.len > 0) {
-        html += `<div class="bg-white rounded-xl shadow-sm border border-green-200 p-4">
-            <div class="text-xs uppercase font-bold text-green-600 mb-1">Chuỗi Thắng Dài Nhất</div>
-            <div class="text-3xl font-black text-green-700 mb-2">${globalMaxWinStreakObj.len} <span class="text-lg font-bold">điểm</span></div>
-            <div class="text-sm text-gray-600 space-y-1">
-                <div><span class="text-gray-400">Trận:</span> ${globalMaxWinStreakObj.match}</div>
-                <div><span class="text-gray-400">Game:</span> ${globalMaxWinStreakObj.game}</div>
-                <div><span class="text-gray-400">Điểm số:</span> #${globalMaxWinStreakObj.startPt} đến #${globalMaxWinStreakObj.endPt}</div>
-                <div><span class="text-gray-400">Tỷ số:</span> ${globalMaxWinStreakObj.startScore} &rarr; ${globalMaxWinStreakObj.endScore}</div>
-            </div>
-        </div>`;
-    } else {
-        html += `<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center text-gray-400 text-sm flex items-center justify-center">Chưa có chuỗi thắng</div>`;
+        html += `</tbody></table></div>`;
     }
 
-    if(globalMaxLoseStreakObj && globalMaxLoseStreakObj.len > 0) {
-        html += `<div class="bg-white rounded-xl shadow-sm border border-red-200 p-4">
-            <div class="text-xs uppercase font-bold text-red-500 mb-1">Chuỗi Thua Dài Nhất</div>
-            <div class="text-3xl font-black text-red-600 mb-2">${globalMaxLoseStreakObj.len} <span class="text-lg font-bold">điểm</span></div>
-            <div class="text-sm text-gray-600 space-y-1">
-                <div><span class="text-gray-400">Trận:</span> ${globalMaxLoseStreakObj.match}</div>
-                <div><span class="text-gray-400">Game:</span> ${globalMaxLoseStreakObj.game}</div>
-                <div><span class="text-gray-400">Điểm số:</span> #${globalMaxLoseStreakObj.startPt} đến #${globalMaxLoseStreakObj.endPt}</div>
-                <div><span class="text-gray-400">Tỷ số:</span> ${globalMaxLoseStreakObj.startScore} &rarr; ${globalMaxLoseStreakObj.endScore}</div>
-            </div>
-        </div>`;
-    } else {
-        html += `<div class="bg-white rounded-xl shadow-sm border border-gray-100 p-4 text-center text-gray-400 text-sm flex items-center justify-center">Chưa có chuỗi thua</div>`;
-    }
-    html += `<div class="col-span-1 sm:col-span-2 text-xs text-gray-400 italic text-right -mt-2">* Nếu có nhiều chuỗi dài bằng nhau, chuỗi xuất hiện sớm nhất sẽ được hiển thị.</div>`;
-    html += `</div>`;
+    html += `</div>`; // End Tactical Analytics
 
-    if (gameAnalysis.length > 0) {
-        html += `<h3 class="font-bold text-gray-700 mb-3">Phân tích theo Game</h3>`;
+    // --- NHÓM 3: MOMENTUM ---
+    html += `
+        <div>
+            <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">3. Momentum (Chuỗi điểm)</h2>
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <div class="grid grid-cols-3 gap-2 text-center">
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Chuỗi Thắng</div><div class="font-black text-green-600 text-2xl">${s.maxWinStreak}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Chuỗi Ép lỗi</div><div class="font-black text-blue-600 text-2xl">${s.maxForcedStreak}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Chuỗi Tự hỏng</div><div class="font-black text-red-600 text-2xl">${s.maxUnforcedStreak}</div></div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    // --- NHÓM 4: GAME SUMMARY ---
+    if (s.gameSummary.length > 0) {
         html += `
-            <div class="overflow-x-auto bg-white rounded-lg shadow-sm border border-gray-200 mb-6">
-                <table class="min-w-full text-left text-sm whitespace-nowrap">
-                    <thead class="bg-gray-50 text-gray-700 uppercase text-[10px] sm:text-xs">
-                        <tr>
-                            <th class="px-2 py-2 border-b border-r">Trận/Game</th>
-                            <th class="px-2 py-2 border-b border-r">Tỷ số</th>
-                            <th class="px-2 py-2 border-b border-r text-center">Tổng Điểm</th>
-                            <th class="px-2 py-2 border-b border-r text-green-600 text-center">Thắng</th>
-                            <th class="px-2 py-2 border-b border-r text-red-500 text-center">Thua</th>
-                            <th class="px-2 py-2 border-b border-r text-center">Thắng Giao Bóng</th>
-                            <th class="px-2 py-2 border-b border-r text-center">Thắng Đỡ Giao</th>
-                            <th class="px-2 py-2 border-b border-r text-green-600 text-center">Chuỗi Thắng</th>
-                            <th class="px-2 py-2 border-b text-red-500 text-center">Chuỗi Thua</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-gray-100">
-                        ${gameAnalysis.map(ga => {
-                            const serveRate = ga.gServeTotal > 0 ? Math.round(ga.gServeWin/ga.gServeTotal*100) : 0;
-                            const receiveRate = ga.gReceiveTotal > 0 ? Math.round(ga.gReceiveWin/ga.gReceiveTotal*100) : 0;
-                            return `
-                                <tr class="hover:bg-gray-50">
-                                    <td class="px-2 py-2 border-r">
-                                        <div class="font-medium text-gray-800">${ga.matchVs}</div>
-                                        <div class="text-xs text-gray-500">${ga.matchDate} - G${ga.gameSo}</div>
-                                    </td>
-                                    <td class="px-2 py-2 border-r text-gray-700 font-semibold">${ga.tySoBatDau} &rarr; ${ga.tySoChungCuoc}</td>
-                                    <td class="px-2 py-2 border-r text-center">${ga.tongDiem}</td>
-                                    <td class="px-2 py-2 border-r text-green-600 font-bold text-center">${ga.gWin}</td>
-                                    <td class="px-2 py-2 border-r text-red-500 font-bold text-center">${ga.gLose}</td>
-                                    <td class="px-2 py-2 border-r text-gray-600 text-center">${serveRate}% <span class="text-xs">(${ga.gServeWin}/${ga.gServeTotal})</span></td>
-                                    <td class="px-2 py-2 border-r text-gray-600 text-center">${receiveRate}% <span class="text-xs">(${ga.gReceiveWin}/${ga.gReceiveTotal})</span></td>
-                                    <td class="px-2 py-2 border-r text-green-600 font-semibold text-center">${ga.maxWinStreak}</td>
-                                    <td class="px-2 py-2 text-red-500 font-semibold text-center">${ga.maxLoseStreak}</td>
-                                </tr>
-                            `;
-                        }).join('')}
-                    </tbody>
-                </table>
-            </div>
+            <div>
+                <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">4. Game Summary</h2>
+                <div class="bg-white rounded-xl shadow-sm border p-4 overflow-x-auto">
+                    <table class="w-full text-xs text-left whitespace-nowrap">
+                        <thead class="text-gray-500 bg-gray-50 uppercase border-b">
+                            <tr>
+                                <th class="px-2 py-2">Game</th>
+                                <th class="px-2 py-2 text-center">Pha bóng</th>
+                                <th class="px-2 py-2 text-center text-green-600">Winner</th>
+                                <th class="px-2 py-2 text-center text-blue-600">Ép hỏng</th>
+                                <th class="px-2 py-2 text-center text-red-600">Tự hỏng</th>
+                                <th class="px-2 py-2 text-center">Kết quả</th>
+                            </tr>
+                        </thead>
+                        <tbody>
         `;
+        s.gameSummary.forEach(g => {
+            html += `
+                <tr class="border-b last:border-0">
+                    <td class="px-2 py-2 font-bold">${g.game_so}</td>
+                    <td class="px-2 py-2 text-center">${g.pts}</td>
+                    <td class="px-2 py-2 text-center text-green-600 font-semibold">${g.winnerMe}</td>
+                    <td class="px-2 py-2 text-center text-blue-600 font-semibold">${g.forcedMe}</td>
+                    <td class="px-2 py-2 text-center text-red-600 font-semibold">${g.unforcedMe}</td>
+                    <td class="px-2 py-2 text-center">
+                        ${g.isWin ? `<span class="bg-green-100 text-green-800 text-[10px] uppercase px-2 py-1 rounded font-bold">Thắng</span>` : `<span class="bg-gray-100 text-gray-800 text-[10px] uppercase px-2 py-1 rounded font-bold">Thua</span>`}
+                    </td>
+                </tr>
+            `;
+        });
+        html += `</tbody></table></div></div>`;
     }
 
+    html += `</div>`;
     container.innerHTML = html;
-}
-
-window.updateDashboardFilter = function(key, value) {
-    appState.dashboardFilter[key] = value;
-    renderView('dashboard');
 };
 
-window.clearDashboardFilter = function() {
-    appState.dashboardFilter = { matchId: 'all', fromDate: '', toDate: '', loai_hinh: 'all', doi_thu: 'all', _lastMatchId: 'all' };
-    renderView('dashboard');
-};
 
         // --- SETTINGS ---
         function renderSettings(container) {
@@ -1219,6 +1694,25 @@ window.clearDashboardFilter = function() {
             showToast('Đã xóa token.');
             renderView('settings');
         }
+
+        
+        window.updateDashboardPerspective = function(pers) {
+            appState.dashboardPerspective = pers;
+            renderView('dashboard');
+        };
+        
+        window.updateDashboardFilter = function() {
+            appState.dashboardFilter = {
+                matchId: document.getElementById('dbFilterMatch').value,
+                fromDate: document.getElementById('dbFilterFrom').value,
+                toDate: document.getElementById('dbFilterTo').value,
+                loai_hinh: document.getElementById('dbFilterType').value,
+                doi_thu: document.getElementById('dbFilterOpp').value,
+                _lastMatchId: document.getElementById('dbFilterMatch').value
+            };
+            appState.currentMatchId = appState.dashboardFilter.matchId === 'all' ? null : appState.dashboardFilter.matchId;
+            renderView('dashboard');
+        };
 
         // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {

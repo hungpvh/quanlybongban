@@ -1,14 +1,7 @@
-{
-  "thong_tin_tran_dau": {
-    "ngay_thi_dau": "Ngày thi đấu",
-    "loai_hinh": "Loại hình",
-    "doi_thu_1": "Tên Đối thủ 1",
-    "doi_thu_2": "Tên Đối thủ 2",
-    "chap_bong": "Chấp bóng",
-    "ket_qua": "Tỷ số",
-    "mo_ta": "Mô tả",
-    "link_video": "Link video"
-  },
+import json
+
+dict_data = {
+  "thong_tin_tran_dau": { "ngay_thi_dau": "Ngày thi đấu", "loai_hinh": "Loại hình", "doi_thu_1": "Tên Đối thủ 1", "doi_thu_2": "Tên Đối thủ 2", "chap_bong": "Chấp bóng", "ket_qua": "Tỷ số", "mo_ta": "Mô tả", "link_video": "Link video" },
   "tinh_chat_pha_bong": {
     "winner": "Điểm trực tiếp",
     "unforced_error": "Lỗi tự đánh hỏng",
@@ -61,3 +54,7 @@
     }
   }
 }
+
+with open("/app/applet/tu_dien_bong_ban.json", "w", encoding="utf-8") as f:
+    json.dump(dict_data, f, ensure_ascii=False, indent=2)
+
