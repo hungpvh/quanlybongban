@@ -33,7 +33,7 @@
               "dac_tinh": {
                 "diem_roi_ngang": "trai",
                 "do_dai": "dai",
-                "do_xoay": null,
+                "do_xoay": "xuong",
                 "vi_tri_hong": "ruc_luoi"
               }
             }
