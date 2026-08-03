@@ -23,10 +23,20 @@
             "thu_tu_diem": 1,
             "ty_so_hien_tai": "1-0",
             "loai_diem": "thang",
-            "nhom": "nhom_ky_thuat",
-            "ky_thuat": "giat_phai",
-            "phuong_thuc": "doi_thu_danh_hong",
-            "nguoi_giao_bong": "Nghiêm Xuân Hùng"
+            "nguoi_giao_bong": "Nghiêm Xuân Hùng",
+            "chi_tiet_pha_bong": {
+              "tinh_chat": "unforced_error",
+              "nguoi_ket_thuc": "Nghiêm Xuân Hùng",
+              "ky_thuat_ket_thuc": "giat_phai",
+              "nguoi_kien_tao": null,
+              "ky_thuat_kien_tao": null,
+              "dac_tinh": {
+                "diem_roi_ngang": "trai",
+                "do_dai": "dai",
+                "do_xoay": null,
+                "vi_tri_hong": "ruc_luoi"
+              }
+            }
           }
         ]
       }
