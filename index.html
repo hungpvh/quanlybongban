@@ -134,7 +134,8 @@ const MOCK_MATCHES = [
             currentMatchId: null,
             currentGameIndex: null,
             github: { user: '', repo: '', branch: 'main', dataPath: 'dulieubongban.json', dictPath: 'tu_dien_bong_ban.json', token: '', sha: null, dictSha: null },
-            isLoading: false
+            isLoading: false,
+            isSyncing: false
         };
 
         // --- DATA MIGRATION & VALIDATION ---
@@ -331,13 +332,20 @@ const MOCK_MATCHES = [
         }
         async function githubApi(method, path, body = null) {
             const { user, repo, branch, token } = appState.github;
-            // Thêm timestamp để tránh cache từ trình duyệt (hoặc dùng cache: 'no-store')
-            const cacheBuster = method === 'GET' ? `&t=${Date.now()}` : '';
-            const url = `https://api.github.com/repos/${user}/${repo}/contents/${path}${method==='GET'?`?ref=${branch}${cacheBuster}`:''}`;
-            const headers = { 'Accept': 'application/vnd.github.v3+json', 'Authorization': `Bearer ${token}` };
-            const options = { method, headers, cache: 'no-store' };
+            const url = new URL(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
+            if (method === 'GET') {
+                if (branch) url.searchParams.append('ref', branch);
+            }
+            // Add cache buster for all requests just to be safe
+            url.searchParams.append('t', Date.now());
+
+            const headers = { 
+                'Accept': 'application/vnd.github.v3+json', 
+                'Authorization': `Bearer ${token}`
+            };
+            const options = { method, headers, cache: 'no-cache' };
             if (body) options.body = JSON.stringify(body);
-            const res = await fetch(url, options);
+            const res = await fetch(url.toString(), options);
             if (!res.ok) throw new Error(await res.text());
             return res.json();
         }
@@ -375,6 +383,8 @@ const MOCK_MATCHES = [
         }
         async function saveToGithub() {
             if (appState.isMock) { showToast('Đã lưu cục bộ (Chế độ mẫu).', 'success'); renderView(appState.view); return; }
+            if (appState.isSyncing) return;
+            appState.isSyncing = true;
             try {
                 showToast('Đang đồng bộ lên GitHub...', 'info');
                 // Luôn ngầm thực hiện một lệnh GET để xin lại mã SHA mới nhất từ GitHub
@@ -397,6 +407,8 @@ const MOCK_MATCHES = [
                 console.error(e);
                 showToast('Lỗi đồng bộ: ' + (e.message || 'Unknown'), 'error');
                 alert('Lỗi đồng bộ: ' + e.message);
+            } finally {
+                appState.isSyncing = false;
             }
             renderView(appState.view);
         }
