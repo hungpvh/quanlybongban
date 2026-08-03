@@ -1,1 +1,18 @@
-[]
+[
+  {
+    "id_tran_dau": "match_1785756349878",
+    "thong_tin": {
+      "ngay_thi_dau": "2026-08-02",
+      "loai_hinh": "Thi đấu giải",
+      "doi_thu_1": "Hungpv",
+      "doi_thu_2": "Nghiêm Xuân Hùng",
+      "chap_bong": "",
+      "ket_qua": "1-3",
+      "mo_ta": "",
+      "link_youtube": "https://www.youtube.com/watch?v=h5DqPOEvZ-8&list=PLWmY-8pplD9A",
+      "link_facebook": "",
+      "link_khac": ""
+    },
+    "chi_tiet_game": []
+  }
+]
