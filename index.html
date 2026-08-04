@@ -112,13 +112,74 @@
 const MOCK_MATCHES = [
             {
                 "id_tran_dau": "match_1717123456",
-                "thong_tin": { "ngay_thi_dau": "2026-07-30", "loai_hinh": "Đánh bia", "doi_thu_1": "Hungpv", "doi_thu_2": "Nguyễn Văn A", "chap_bong": "Tôi chấp 2", "ket_qua": "3-2", "mo_ta": "Đối thủ gò nặng.", "link_youtube": "", "link_facebook": "", "link_khac": "" },
+                "thong_tin": { "ngay_thi_dau": "2026-07-30", "loai_hinh": "Đánh bia", "doi_thu_1": "Hungpv", "doi_thu_2": "Nguyễn Văn A", "chap_bong": "Không", "ket_qua": "Đang đấu", "mo_ta": "Dữ liệu mẫu 9 điểm.", "link_youtube": "", "link_facebook": "", "link_khac": "" },
                 "chi_tiet_game": [
                     {
-                        "game_so": 1, "ty_so_bat_dau": "0-2", "nguoi_giao_bong_truoc": "Hungpv", "ty_so_chung_cuoc": "11-8", "trang_thai": "hoan_thanh",
+                        "game_so": 1, "ty_so_bat_dau": "0-0", "nguoi_giao_bong_truoc": "Hungpv", "ty_so_chung_cuoc": "5-4", "trang_thai": "dang_dau",
                         "danh_sach_diem": [
-                            { "thu_tu_diem": 1, "ty_so_hien_tai": "1-2", "loai_diem": "thang", "nhom": "nhom_giao_bong", "ky_thuat": "xuong_ngan", "nguoi_giao_bong": "Hungpv" },
-                            { "thu_tu_diem": 2, "ty_so_hien_tai": "1-3", "loai_diem": "thua", "nhom": "nhom_ky_thuat", "ky_thuat": "phong_thu_trai", "nguoi_giao_bong": "Hungpv" }
+                            { 
+                                "thu_tu_diem": 1, "ty_so_hien_tai": "1-0", "loai_diem": "thang", "nguoi_giao_bong": "Hungpv",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "winner", "nguoi_ket_thuc": "Hungpv", "ky_thuat_ket_thuc": "giao_bong_thuan", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "trai", "do_dai": "dai", "do_xoay": "ngang_len", "vi_tri_hong": "" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 2, "ty_so_hien_tai": "1-1", "loai_diem": "thua", "nguoi_giao_bong": "Hungpv",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "winner", "nguoi_ket_thuc": "Nguyễn Văn A", "ky_thuat_ket_thuc": "giat_phai", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "phai", "do_dai": "ngan", "do_xoay": "ngang_len", "vi_tri_hong": "" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 3, "ty_so_hien_tai": "2-1", "loai_diem": "thang", "nguoi_giao_bong": "Nguyễn Văn A",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "forced_error", "nguoi_ket_thuc": "Nguyễn Văn A", "ky_thuat_ket_thuc": "chan_phai", "nguoi_kien_tao": "Hungpv", "ky_thuat_kien_tao": "giat_phai",
+                                    "dac_tinh": { "diem_roi_ngang": "trai", "do_dai": "dai", "do_xoay": "ngang_len", "vi_tri_hong": "ruc_luoi" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 4, "ty_so_hien_tai": "2-2", "loai_diem": "thua", "nguoi_giao_bong": "Nguyễn Văn A",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "forced_error", "nguoi_ket_thuc": "Hungpv", "ky_thuat_ket_thuc": "giat_phai", "nguoi_kien_tao": "Nguyễn Văn A", "ky_thuat_kien_tao": "cat_nang",
+                                    "dac_tinh": { "diem_roi_ngang": "phai", "do_dai": "dai", "do_xoay": "xuong", "vi_tri_hong": "ra_ngoai" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 5, "ty_so_hien_tai": "3-2", "loai_diem": "thang", "nguoi_giao_bong": "Hungpv",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "unforced_error", "nguoi_ket_thuc": "Nguyễn Văn A", "ky_thuat_ket_thuc": "giao_bong_trai", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "", "do_dai": "", "do_xoay": "", "vi_tri_hong": "ruc_luoi" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 6, "ty_so_hien_tai": "3-3", "loai_diem": "thua", "nguoi_giao_bong": "Hungpv",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "unforced_error", "nguoi_ket_thuc": "Hungpv", "ky_thuat_ket_thuc": "go_phai", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "", "do_dai": "", "do_xoay": "xuong", "vi_tri_hong": "ra_ngoai" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 7, "ty_so_hien_tai": "4-3", "loai_diem": "thang", "nguoi_giao_bong": "Nguyễn Văn A",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "winner", "nguoi_ket_thuc": "Hungpv", "ky_thuat_ket_thuc": "bat_phai", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "giua", "do_dai": "dai", "do_xoay": "ngang_len", "vi_tri_hong": "" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 8, "ty_so_hien_tai": "4-4", "loai_diem": "thua", "nguoi_giao_bong": "Nguyễn Văn A",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "winner", "nguoi_ket_thuc": "Nguyễn Văn A", "ky_thuat_ket_thuc": "doi_giat_phai", "nguoi_kien_tao": "", "ky_thuat_kien_tao": "",
+                                    "dac_tinh": { "diem_roi_ngang": "trai", "do_dai": "ngan", "do_xoay": "ngang_len", "vi_tri_hong": "" }
+                                }
+                            },
+                            { 
+                                "thu_tu_diem": 9, "ty_so_hien_tai": "5-4", "loai_diem": "thang", "nguoi_giao_bong": "Hungpv",
+                                "chi_tiet_pha_bong": {
+                                    "tinh_chat": "forced_error", "nguoi_ket_thuc": "Nguyễn Văn A", "ky_thuat_ket_thuc": "tra_giao_bong", "nguoi_kien_tao": "Hungpv", "ky_thuat_kien_tao": "giao_bong_thuan",
+                                    "dac_tinh": { "diem_roi_ngang": "phai", "do_dai": "ngan", "do_xoay": "xuong", "vi_tri_hong": "ruc_luoi" }
+                                }
+                            }
                         ]
                     }
                 ]
@@ -343,7 +404,7 @@ const MOCK_MATCHES = [
                 'Accept': 'application/vnd.github.v3+json', 
                 'Authorization': `Bearer ${token}`
             };
-            const options = { method, headers, cache: 'no-cache' };
+            const options = { method, headers, cache: 'no-store' };
             if (body) options.body = JSON.stringify(body);
             const res = await fetch(url.toString(), options);
             if (!res.ok) throw new Error(await res.text());
@@ -734,6 +795,29 @@ const MOCK_MATCHES = [
             }
             return currentServer;
         }
+        window.undoLastPoint = async function() {
+            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
+            const game = match.chi_tiet_game[appState.currentGameIndex];
+            if(game.danh_sach_diem.length > 0) {
+                game.danh_sach_diem.pop();
+                recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
+                await saveToGithub();
+                renderView(appState.view);
+            }
+        };
+
+        window.deletePoint = async function(idx) {
+            if(!confirm('Bạn có chắc chắn muốn xóa điểm này?')) return;
+            const match = appState.matches.find(m => m.id_tran_dau === appState.currentMatchId);
+            const game = match.chi_tiet_game[appState.currentGameIndex];
+            if(idx >= 0 && idx < game.danh_sach_diem.length) {
+                game.danh_sach_diem.splice(idx, 1);
+                recalculateGameTimeline(game, match.thong_tin.doi_thu_1, match.thong_tin.doi_thu_2);
+                await saveToGithub();
+                renderView(appState.view);
+            }
+        };
+
         function recalculateGameTimeline(game, dt1, dt2) {
             let {p1, p2} = parseScore(game.ty_so_bat_dau);
             let tempPts = [];
@@ -826,8 +910,9 @@ const MOCK_MATCHES = [
                                     <div class="text-xs text-gray-500 mt-0.5">
                                         Giao: ${pt.nguoi_giao_bong} &bull; #${pt.thu_tu_diem}
                                         ${pt.chi_tiet_pha_bong && pt.chi_tiet_pha_bong.dac_tinh && (pt.chi_tiet_pha_bong.dac_tinh.do_xoay || pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang || pt.chi_tiet_pha_bong.dac_tinh.do_dai) ? 
-                                            `<br><span class="text-blue-500">` + 
+                                            `<br><span class="text-blue-500 font-medium">` + (pt.chi_tiet_pha_bong.tinh_chat === 'winner' ? 'Thông số đường bóng ghi điểm: ' : 'Thông số đường bóng trước khi đánh hỏng: ') + `</span><span class="text-blue-500">` + 
                                             [
+                                                pt.chi_tiet_pha_bong.tinh_chat !== 'winner' && pt.chi_tiet_pha_bong.ky_thuat_kien_tao ? (appState.dict.ky_thuat_rally[pt.chi_tiet_pha_bong.ky_thuat_kien_tao] || appState.dict.loai_giao_bong[pt.chi_tiet_pha_bong.ky_thuat_kien_tao] || pt.chi_tiet_pha_bong.ky_thuat_kien_tao) : '',
                                                 pt.chi_tiet_pha_bong.dac_tinh.do_xoay ? appState.dict.thuoc_tinh_bong.do_xoay[pt.chi_tiet_pha_bong.dac_tinh.do_xoay] || pt.chi_tiet_pha_bong.dac_tinh.do_xoay : '',
                                                 pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'trai' ? 'Trái' : pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'giua' ? 'Giữa' : pt.chi_tiet_pha_bong.dac_tinh.diem_roi_ngang === 'phai' ? 'Phải' : '',
                                                 pt.chi_tiet_pha_bong.dac_tinh.do_dai === 'ngan' ? 'Ngắn' : pt.chi_tiet_pha_bong.dac_tinh.do_dai === 'dai' ? 'Dài' : ''
@@ -916,12 +1001,13 @@ const MOCK_MATCHES = [
                 </div>
             `;
 
-            const renderTechSelect = (label, key) => `
+            const renderTechSelect = (label, key, hideServe = false) => `
                 <div class="mb-5">
                     <label class="block text-sm font-black text-gray-800 mb-2">${label}</label>
+                    ${!hideServe ? `
                     <div class="grid grid-cols-2 gap-2 mb-2">
                         ${serveKeys.map(k => `<button onclick="updatePtState('${key}', '${k}')" class="p-3 rounded-xl font-semibold text-xs border transition ${s[key]===k?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${appState.dict.loai_giao_bong[k]}</button>`).join('')}
-                    </div>
+                    </div>` : ''}
                     <div class="grid grid-cols-3 gap-2">
                         ${techKeys.map(k => `<button onclick="updatePtState('${key}', '${k}')" class="p-2 rounded-xl font-semibold text-xs border transition ${s[key]===k?'bg-blue-600 text-white border-blue-600 shadow-md':'bg-white text-gray-700 border-gray-300 shadow-sm'}">${appState.dict.ky_thuat_rally[k]}</button>`).join('')}
                     </div>
@@ -987,10 +1073,11 @@ const MOCK_MATCHES = [
                 html += renderPlayerSelect("Người ghi điểm (Kết thúc)", "nguoi_ket_thuc");
                 html += renderTechSelect("Kỹ thuật kết thúc", "ky_thuat_ket_thuc");
             } else if (s.tinh_chat === 'forced_error') {
+                const hideServe = s.loai_diem === 'thua';
                 html += renderPlayerSelect("Người kiến tạo (Ép)", "nguoi_kien_tao");
-                html += renderTechSelect("Kỹ thuật kiến tạo", "ky_thuat_kien_tao");
+                html += renderTechSelect("Kỹ thuật kiến tạo", "ky_thuat_kien_tao", hideServe);
                 html += renderPlayerSelect("Người đánh hỏng", "nguoi_ket_thuc");
-                html += renderTechSelect("Kỹ thuật đánh hỏng", "ky_thuat_ket_thuc");
+                html += renderTechSelect("Kỹ thuật đánh hỏng", "ky_thuat_ket_thuc", hideServe);
                 html += renderViTriHong();
             } else if (s.tinh_chat === 'unforced_error') {
                 html += renderPlayerSelect("Người đánh hỏng", "nguoi_ket_thuc");
@@ -1157,32 +1244,32 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
     const s = {
         matches: { total: 0, win: 0 },
         games: { total: 0, win: 0 },
-        points: { total: 0, win: 0 },
+        points: { total: 0, win: 0, lose: 0 },
         
-        winnerByMe: 0, forcedErrorByMe: 0, unforcedErrorByMe: 0,
-        winnerByOpp: 0, forcedErrorByOpp: 0, unforcedErrorByOpp: 0,
+        winnerByMe: 0, forcedErrorByMe: 0, unforcedErrorByMe: 0, forcedErrorAgainstMe: 0,
+        opponentStats: { winner: 0, forced: 0, unforced: 0 },
         
         technique: {}, 
-        assistTech: {},
         
         serve: { total: 0, win: 0 },
         receive: { total: 0, win: 0 },
-        serveType: {},
+        serveByType: {},
+        serveByGame: {},
         
         maxWinStreak: 0, maxForcedStreak: 0, maxUnforcedStreak: 0,
         
         gameSummary: [], 
         
+        spin: {},
         heatmapWinner: { ngan_trai: 0, ngan_giua: 0, ngan_phai: 0, dai_trai: 0, dai_giua: 0, dai_phai: 0 },
         heatmapLost: { ngan_trai: 0, ngan_giua: 0, ngan_phai: 0, dai_trai: 0, dai_giua: 0, dai_phai: 0 },
-        spin: {},
-        errorLocation: {}
     };
 
     filteredMatches.forEach(m => {
         s.matches.total++;
         let mWins = 0, mLoses = 0;
         const me = perspective === 'doi_thu_1' ? m.thong_tin.doi_thu_1 : m.thong_tin.doi_thu_2;
+        const opp = perspective === 'doi_thu_1' ? m.thong_tin.doi_thu_2 : m.thong_tin.doi_thu_1;
 
         if (m.chi_tiet_game) m.chi_tiet_game.forEach((g, gIndex) => {
             s.games.total++;
@@ -1192,6 +1279,10 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
             let currentUnforcedStreak = 0;
             
             let gWinnerMe = 0, gForcedMe = 0, gUnforcedMe = 0;
+            
+            // For Serve By Game
+            const gameKey = `Game ${g.game_so}`;
+            if (!s.serveByGame[gameKey]) s.serveByGame[gameKey] = { total: 0, win: 0 };
 
             if (g.danh_sach_diem) g.danh_sach_diem.forEach(pt => {
                 const c = pt.chi_tiet_pha_bong;
@@ -1199,12 +1290,24 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
                 
                 s.points.total++;
                 const isWin = perspective === 'doi_thu_1' ? pt.loai_diem === 'thang' : pt.loai_diem === 'thua';
-                if (isWin) { s.points.win++; gWins++; } else { gLoses++; }
+                if (isWin) { s.points.win++; gWins++; } else { s.points.lose++; gLoses++; }
 
                 // Serve
                 if (pt.nguoi_giao_bong === me) {
                     s.serve.total++;
-                    if (isWin) s.serve.win++;
+                    s.serveByGame[gameKey].total++;
+                    if (isWin) {
+                        s.serve.win++;
+                        s.serveByGame[gameKey].win++;
+                    }
+                    
+                    // Serve by type if it's the ending technique
+                    if (c.ky_thuat_ket_thuc && appState.dict.loai_giao_bong && appState.dict.loai_giao_bong[c.ky_thuat_ket_thuc]) {
+                        const t = c.ky_thuat_ket_thuc;
+                        if (!s.serveByType[t]) s.serveByType[t] = { total: 0, win: 0 };
+                        s.serveByType[t].total++;
+                        if (isWin) s.serveByType[t].win++;
+                    }
                 } else {
                     s.receive.total++;
                     if (isWin) s.receive.win++;
@@ -1227,48 +1330,43 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
                 } else currentUnforcedStreak = 0;
 
                 // Tinh chat
-                if (isWin) {
+                if (c.nguoi_ket_thuc === me) {
                     if (c.tinh_chat === 'winner') { s.winnerByMe++; gWinnerMe++; }
-                    if (c.tinh_chat === 'forced_error') { s.forcedErrorByMe++; gForcedMe++; }
-                    if (c.tinh_chat === 'unforced_error') s.unforcedErrorByOpp++;
-                } else {
-                    if (c.tinh_chat === 'winner') s.winnerByOpp++;
-                    if (c.tinh_chat === 'forced_error') s.forcedErrorByOpp++;
                     if (c.tinh_chat === 'unforced_error') { s.unforcedErrorByMe++; gUnforcedMe++; }
+                    if (c.tinh_chat === 'forced_error') { s.forcedErrorAgainstMe++; }
+                } else if (c.nguoi_ket_thuc === opp) {
+                    if (c.tinh_chat === 'winner') { s.opponentStats.winner++; }
+                    if (c.tinh_chat === 'unforced_error') { s.opponentStats.unforced++; }
+                    if (c.tinh_chat === 'forced_error') { s.opponentStats.forced++; }
+                }
+                
+                if (c.nguoi_kien_tao === me && c.tinh_chat === 'forced_error') {
+                    s.forcedErrorByMe++;
+                    gForcedMe++;
                 }
 
-                // Tech & Assist
+                // Tech
                 const techFinish = c.ky_thuat_ket_thuc;
                 const techAssist = c.ky_thuat_kien_tao;
                 
-                if (techFinish && c.nguoi_ket_thuc === me) {
-                    if (!s.technique[techFinish]) s.technique[techFinish] = { total: 0, winnerByMe: 0, forcedErrorByMe: 0, unforcedErrorByMe: 0 };
-                    s.technique[techFinish].total++;
-                    if (c.tinh_chat === 'winner') s.technique[techFinish].winnerByMe++;
-                    if (c.tinh_chat === 'unforced_error') s.technique[techFinish].unforcedErrorByMe++;
-                    if (c.tinh_chat === 'forced_error' && c.nguoi_ket_thuc === me) {
-                        // Actually if I hit a forced error, it means I made the error. So forcedErrorByMe?
-                        // "forcedErrorByMe" usually means I FORCED the opponent into an error. 
-                        // If I made a forced error, it's forced error against me.
-                        // I will track my own errors separately if needed, but let's keep it simple: unforced is what matters for negative stats.
+                const initTech = (t) => {
+                    if (!s.technique[t]) s.technique[t] = { scoring: 0, losing: 0, winner: 0, forcedByMe: 0, unforced: 0, forcedAgainstMe: 0 };
+                };
+                
+                if (techFinish && appState.dict.ky_thuat_rally[techFinish]) {
+                    if (c.nguoi_ket_thuc === me) {
+                        initTech(techFinish);
+                        if (c.tinh_chat === 'winner') { s.technique[techFinish].winner++; s.technique[techFinish].scoring++; }
+                        if (c.tinh_chat === 'unforced_error') { s.technique[techFinish].unforced++; s.technique[techFinish].losing++; }
+                        if (c.tinh_chat === 'forced_error') { s.technique[techFinish].forcedAgainstMe++; s.technique[techFinish].losing++; }
                     }
                 }
                 
-                if (techAssist && c.nguoi_kien_tao === me) {
-                    if (!s.assistTech[techAssist]) s.assistTech[techAssist] = { totalAssist: 0, forcedErrorOpponent: 0, winner: 0 };
-                    s.assistTech[techAssist].totalAssist++;
-                    if (c.tinh_chat === 'forced_error') s.assistTech[techAssist].forcedErrorOpponent++;
-                    if (c.tinh_chat === 'winner') s.assistTech[techAssist].winner++;
-                }
-                
-                // Serve Type
-                if (pt.nguoi_giao_bong === me && (c.tinh_chat === 'winner' || c.tinh_chat === 'unforced_error' || c.tinh_chat === 'forced_error')) {
-                    // Wait, we don't always know the serve type of EVERY point unless it's logged as the ending/assist tech.
-                    // But if it's logged as a serve, we can track it.
-                    if (appState.dict.loai_giao_bong[techFinish]) {
-                        if (!s.serveType[techFinish]) s.serveType[techFinish] = { total: 0, win: 0 };
-                        s.serveType[techFinish].total++;
-                        if (isWin) s.serveType[techFinish].win++;
+                if (techAssist && appState.dict.ky_thuat_rally[techAssist]) {
+                    if (c.nguoi_kien_tao === me && c.tinh_chat === 'forced_error') {
+                        initTech(techAssist);
+                        s.technique[techAssist].forcedByMe++;
+                        s.technique[techAssist].scoring++;
                     }
                 }
 
@@ -1281,15 +1379,13 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
                         else s.heatmapLost[key] = (s.heatmapLost[key] || 0) + 1;
                     }
                     if (dac_tinh.do_xoay) {
-                        if (!s.spin[dac_tinh.do_xoay]) s.spin[dac_tinh.do_xoay] = { total: 0, win: 0, forcedError: 0 };
+                        if (!s.spin[dac_tinh.do_xoay]) s.spin[dac_tinh.do_xoay] = { total: 0, win: 0, forcedErrorByMe: 0, forcedErrorAgainstMe: 0 };
                         s.spin[dac_tinh.do_xoay].total++;
                         if (isWin) s.spin[dac_tinh.do_xoay].win++;
-                        if (isWin && c.tinh_chat === 'forced_error') s.spin[dac_tinh.do_xoay].forcedError++;
-                    }
-                    if (dac_tinh.vi_tri_hong && c.nguoi_ket_thuc === me) {
-                        if (s.errorLocation[dac_tinh.vi_tri_hong] === undefined) s.errorLocation[dac_tinh.vi_tri_hong] = 0;
-                        if (true) {
-                            s.errorLocation[dac_tinh.vi_tri_hong]++;
+                        
+                        if (c.tinh_chat === 'forced_error') {
+                            if (c.nguoi_kien_tao === me) s.spin[dac_tinh.do_xoay].forcedErrorByMe++;
+                            if (c.nguoi_ket_thuc === me) s.spin[dac_tinh.do_xoay].forcedErrorAgainstMe++;
                         }
                     }
                 }
@@ -1306,8 +1402,6 @@ function calculateDashboardStats(filteredMatches, perspective = 'doi_thu_1') {
                 isWin: gWins > gLoses
             });
         });
-
-        if (mWins > mLoses) s.matches.win++;
     });
 
     return s;
@@ -1344,10 +1438,10 @@ function renderDashboard(container) {
     // Build filter HTML
     let matchOpts = `<option value="all">Tất cả trận</option>`;
     appState.matches.forEach(m => matchOpts += `<option value="${m.id_tran_dau}" ${f.matchId===m.id_tran_dau?'selected':''}>${m.thong_tin.ngay_thi_dau}: ${m.thong_tin.doi_thu_1} vs ${m.thong_tin.doi_thu_2}</option>`);
-
+    
     let typeOpts = `<option value="all">Tất cả</option>`;
     [...new Set(appState.matches.map(m=>m.thong_tin.loai_hinh))].forEach(t => typeOpts += `<option value="${t}" ${f.loai_hinh===t?'selected':''}>${t}</option>`);
-
+    
     let oppOpts = `<option value="all">Tất cả</option>`;
     [...new Set(appState.matches.map(m=>m.thong_tin.doi_thu_2))].forEach(o => oppOpts += `<option value="${o}" ${f.doi_thu===o?'selected':''}>${o}</option>`);
     
@@ -1355,10 +1449,9 @@ function renderDashboard(container) {
     let name2 = 'Đối thủ 2';
     if (filteredMatches.length > 0) {
         name1 = filteredMatches[0].thong_tin.doi_thu_1 || 'Đối thủ 1';
-        // If filtering by specific opponent, use that opponent's name, otherwise use the first one's opponent
         name2 = f.doi_thu !== 'all' ? f.doi_thu : (filteredMatches[0].thong_tin.doi_thu_2 || 'Đối thủ 2');
     }
-
+    
     let html = `
         <div class="fixed top-14 left-0 right-0 z-10 bg-white border-b px-4 py-3 shadow-sm flex flex-col gap-3">
             <div class="max-w-3xl mx-auto flex gap-2 w-full">
@@ -1406,195 +1499,179 @@ function renderDashboard(container) {
             </div>
             
             <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
-                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">TÍNH CHẤT ĐIỂM (TÔI ĐÁNH)</h3>
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">HIỆU SUẤT GIAO BÓNG THEO GAME</h3>
+                <div class="space-y-2 text-sm">
+    `;
+    Object.keys(s.serveByGame).forEach(k => {
+        html += `<div class="flex justify-between items-center py-1 border-b last:border-0"><span class="font-medium">${k}</span><span class="font-bold text-indigo-600">${toPct(s.serveByGame[k].win, s.serveByGame[k].total)}% (${s.serveByGame[k].win}/${s.serveByGame[k].total})</span></div>`;
+    });
+    html += `</div></div>`;
+    
+    if (Object.keys(s.serveByType).length > 0) {
+        html += `
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">HIỆU SUẤT THEO LOẠI GIAO BÓNG (LỖI/ACE TRỰC TIẾP)</h3>
+                <div class="space-y-2 text-sm">
+        `;
+        Object.keys(s.serveByType).forEach(k => {
+            html += `<div class="flex justify-between items-center py-1 border-b last:border-0"><span>${getName(k)}</span><span class="font-bold text-indigo-600">${toPct(s.serveByType[k].win, s.serveByType[k].total)}% (${s.serveByType[k].win}/${s.serveByType[k].total})</span></div>`;
+        });
+        html += `</div></div>`;
+    }
+            
+    html += `
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3 text-blue-700">TÍNH CHẤT ĐIỂM (TÔI ĐÁNH)</h3>
                 <div class="grid grid-cols-3 gap-2 text-center mb-4">
                     <div><div class="text-[10px] uppercase text-gray-500 font-bold">Winner</div><div class="font-black text-green-600 text-2xl">${s.winnerByMe}</div></div>
                     <div><div class="text-[10px] uppercase text-gray-500 font-bold">Ép đối thủ đánh hỏng</div><div class="font-black text-blue-600 text-2xl">${s.forcedErrorByMe}</div></div>
-                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Bị ép nên tự đánh hỏng</div><div class="font-black text-red-600 text-2xl">${s.unforcedErrorByMe}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Tự đánh hỏng</div><div class="font-black text-red-600 text-2xl">${s.unforcedErrorByMe}</div></div>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
+                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3 text-red-700">TÍNH CHẤT ĐIỂM (ĐỐI THỦ ĐÁNH)</h3>
+                <div class="grid grid-cols-3 gap-2 text-center mb-4">
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Winner</div><div class="font-black text-green-600 text-2xl">${s.opponentStats.winner}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Ép tôi đánh hỏng</div><div class="font-black text-blue-600 text-2xl">${s.opponentStats.forced}</div></div>
+                    <div><div class="text-[10px] uppercase text-gray-500 font-bold">Tự đánh hỏng</div><div class="font-black text-red-600 text-2xl">${s.opponentStats.unforced}</div></div>
                 </div>
             </div>
         </div>
     `;
 
-    // --- NHÓM 5: TACTICAL ANALYTICS ---
-    html += `<div><h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">2. Tactical Analytics</h2>`;
+    // --- NHÓM 2: TACTICAL ANALYTICS ---
+    html += `<div><h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">2. Tactical Analytics & Spin</h2>`;
     
-    // Winner Analysis
-    const topWinner = Object.keys(s.technique).sort((a,b)=>s.technique[b].winnerByMe - s.technique[a].winnerByMe).filter(k => s.technique[k].winnerByMe > 0);
-    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">WINNER ANALYSIS (Theo kỹ thuật)</h3>`;
-    if(topWinner.length>0) {
-        topWinner.forEach(k => {
-            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-green-600">${s.technique[k].winnerByMe}</span></div>`;
-        });
-    } else {
-        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu Winner.</div>`;
-    }
-    html += `</div>`;
 
-    // Forced Error
-    const topAssist = Object.keys(s.assistTech).sort((a,b)=>s.assistTech[b].forcedErrorOpponent - s.assistTech[a].forcedErrorOpponent).filter(k => s.assistTech[k].forcedErrorOpponent > 0);
-    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">Ép đối thủ đánh hỏng</h3>`;
-    if(topAssist.length>0) {
-        topAssist.forEach(k => {
-            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-blue-600">${s.assistTech[k].forcedErrorOpponent}</span></div>`;
-        });
-    } else {
-        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu ép lỗi.</div>`;
-    }
-    html += `</div>`;
-
-    // Unforced Error
-    const topUnforced = Object.keys(s.technique).sort((a,b)=>s.technique[b].unforcedErrorByMe - s.technique[a].unforcedErrorByMe).filter(k => s.technique[k].unforcedErrorByMe > 0);
-    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">Bị ép nên tự đánh hỏng</h3>`;
-    if(topUnforced.length>0) {
-        topUnforced.forEach(k => {
-            html += `<div class="flex justify-between items-center py-2 border-b last:border-0 text-sm"><span>${getName(k)}</span><span class="font-bold text-red-600">${s.technique[k].unforcedErrorByMe}</span></div>`;
-        });
-    } else {
-        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu tự hỏng.</div>`;
-    }
-    html += `</div>`;
-
-
-    // Assist
-    const allAssist = Object.keys(s.assistTech).sort((a,b)=>s.assistTech[b].totalAssist - s.assistTech[a].totalAssist).filter(k => s.assistTech[k].totalAssist > 0);
-    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">HIỆU QUẢ KIẾN TẠO (ASSIST)</h3>`;
-    if(allAssist.length>0) {
-        allAssist.forEach(k => {
-            const obj = s.assistTech[k];
-            html += `
-                <div class="py-3 border-b last:border-0">
-                    <div class="flex justify-between items-center mb-2">
-                        <span class="font-bold text-sm text-gray-800">${getName(k)}</span>
-                        <span class="text-xs text-gray-500">${obj.totalAssist} lần kiến tạo</span>
-                    </div>
-                    <div class="flex gap-2">
-                        <div class="flex-1 bg-gray-50 border rounded p-2 text-center">
-                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">Chuyển hóa Winner</div>
-                            <div class="font-black text-green-600">${toPct(obj.winner, obj.totalAssist)}%</div>
-                        </div>
-                        <div class="flex-1 bg-gray-50 border rounded p-2 text-center">
-                            <div class="text-[10px] text-gray-500 uppercase font-bold mb-1">Tỷ lệ Ép lỗi</div>
-                            <div class="font-black text-blue-600">${toPct(obj.forcedErrorOpponent, obj.totalAssist)}%</div>
-                        </div>
-                    </div>
-                </div>
-            `;
-        });
-    } else {
-        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu kiến tạo.</div>`;
-    }
-    html += `</div>`;
-
-    // Heatmap
-    const rHeatmap = (data, title, overlayColorClass, reverseCols = false, reverseRows = false) => {
-        const total = Object.values(data).reduce((a,b)=>a+b,0) || 1;
-        const cell = (k) => {
-            const c = data[k]||0; const pct = Math.round(c/total*100);
-            const textColor = c > 0 ? (pct > 40 ? 'text-white' : 'text-gray-900') : 'text-gray-400';
-            const overlayOp = c > 0 ? (pct / 100).toFixed(2) : '0';
-            return `<div class="border p-2 flex flex-col items-center justify-center h-20 bg-gray-50 relative overflow-hidden"><div class="absolute inset-0 ${overlayColorClass}" style="opacity: ${overlayOp}"></div><span class="relative z-10 font-bold text-lg ${textColor}">${c}</span><span class="relative z-10 text-[10px] font-semibold ${textColor}">${pct}%</span></div>`;
-        };
-        const cols = reverseCols ? ['phai', 'giua', 'trai'] : ['trai', 'giua', 'phai'];
-        const row1 = reverseRows ? `${cell('ngan_' + cols[0])}${cell('ngan_' + cols[1])}${cell('ngan_' + cols[2])}` : `${cell('dai_' + cols[0])}${cell('dai_' + cols[1])}${cell('dai_' + cols[2])}`;
-        const row2 = reverseRows ? `${cell('dai_' + cols[0])}${cell('dai_' + cols[1])}${cell('dai_' + cols[2])}` : `${cell('ngan_' + cols[0])}${cell('ngan_' + cols[1])}${cell('ngan_' + cols[2])}`;
+    const getHeatmapCell = (val, total, label, colorType) => {
+        const pct = total > 0 ? Math.round((val / total) * 100) : 0;
+        let bgStyle = '';
+        let textClass = 'text-gray-800';
+        if (pct > 0) {
+            if (colorType === 'win') {
+                // green
+                bgStyle = `background-color: rgba(34, 197, 94, ${pct/100 * 0.8 + 0.1});`;
+                if (pct > 40) textClass = 'text-white';
+            } else {
+                // red
+                bgStyle = `background-color: rgba(239, 68, 68, ${pct/100 * 0.8 + 0.1});`;
+                if (pct > 40) textClass = 'text-white';
+            }
+        } else {
+            bgStyle = `background-color: white;`;
+        }
         
-        const labelRow1 = reverseRows ? 'Ngắn' : 'Dài';
-        const labelRow2 = reverseRows ? 'Dài' : 'Ngắn';
-        
-        return `
-            <div class="flex-1 flex flex-col items-center">
-                <div class="text-xs font-bold text-center mb-2 uppercase text-gray-600">${title}</div>
-                <div class="flex items-stretch">
-                    <div class="flex flex-col justify-around text-[10px] text-gray-500 font-bold mr-1">
-                        <div style="writing-mode: vertical-rl; transform: rotate(180deg);" class="flex-1 flex items-center justify-center">${labelRow1}</div>
-                        <div style="writing-mode: vertical-rl; transform: rotate(180deg);" class="flex-1 flex items-center justify-center">${labelRow2}</div>
-                    </div>
-                    <div class="flex-1">
-                        <div class="grid grid-cols-3 gap-0.5 border bg-gray-200">
-                            ${row1}
-                            ${row2}
-                        </div>
-                        <div class="flex justify-between text-[10px] text-gray-500 mt-1 px-1 font-bold">
-                            <span>${cols[0]==='trai'?'Trái':'Phải'}</span>
-                            <span>Giữa</span>
-                            <span>${cols[2]==='trai'?'Trái':'Phải'}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        `;
+        return `<div class="p-2 text-center relative z-10" style="${bgStyle}">
+            <div class="text-[10px] opacity-90 mb-1 font-semibold ${textClass}">${label}</div>
+            <div class="font-black ${textClass} leading-tight">${val} <span class="text-[10px] font-normal block">(${pct}%)</span></div>
+        </div>`;
     };
-    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-4">ĐIỂM RƠI (HEATMAP)</h3><div class="flex gap-4">${rHeatmap(s.heatmapWinner, 'GHI ĐIỂM (WINNER)', 'bg-blue-600', true, false)}${rHeatmap(s.heatmapLost, 'MẤT ĐIỂM (LỖI)', 'bg-red-600', false, true)}</div></div>`;
 
-    // Spin
-    const totalSpins = Object.values(s.spin).reduce((acc, val) => acc + val.total, 0);
-    if (totalSpins > 0) {
-        html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">PHÂN TÍCH ĐỘ XOÁY</h3><div class="space-y-4">`;
-        Object.keys(s.spin).forEach(k => {
-            const obj = s.spin[k];
-            if (obj.total === 0) return;
-            const titleName = appState.dict.thuoc_tinh_bong.do_xoay[k];
+    html += `<div class="grid grid-cols-2 gap-4 mb-4">
+        <div class="bg-white rounded-xl shadow-sm border p-3">
+            <h3 class="text-xs font-bold text-gray-800 text-center mb-2 uppercase text-green-700">ĐIỂM RƠI GHI ĐIỂM (THẮNG)</h3>
+            <div class="grid grid-cols-3 gap-0.5 relative bg-gray-200 p-0.5 border-2 border-green-300">
+                <div class="absolute inset-0 border-b-2 border-dashed border-green-400 pointer-events-none z-20" style="top: 50%"></div>
+                ${getHeatmapCell(s.heatmapWinner['dai_phai'] || 0, s.points.win, 'Dài Phải', 'win')}
+                ${getHeatmapCell(s.heatmapWinner['dai_giua'] || 0, s.points.win, 'Dài Giữa', 'win')}
+                ${getHeatmapCell(s.heatmapWinner['dai_trai'] || 0, s.points.win, 'Dài Trái', 'win')}
+                ${getHeatmapCell(s.heatmapWinner['ngan_phai'] || 0, s.points.win, 'Ngắn Phải', 'win')}
+                ${getHeatmapCell(s.heatmapWinner['ngan_giua'] || 0, s.points.win, 'Ngắn Giữa', 'win')}
+                ${getHeatmapCell(s.heatmapWinner['ngan_trai'] || 0, s.points.win, 'Ngắn Trái', 'win')}
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-sm border p-3">
+            <h3 class="text-xs font-bold text-gray-800 text-center mb-2 uppercase text-red-700">ĐIỂM RƠI MẤT ĐIỂM (THUA)</h3>
+            <div class="grid grid-cols-3 gap-0.5 relative bg-gray-200 p-0.5 border-2 border-red-300">
+                <div class="absolute inset-0 border-b-2 border-dashed border-red-400 pointer-events-none z-20" style="top: 50%"></div>
+                ${getHeatmapCell(s.heatmapLost['ngan_trai'] || 0, s.points.lose, 'Ngắn Trái', 'lose')}
+                ${getHeatmapCell(s.heatmapLost['ngan_giua'] || 0, s.points.lose, 'Ngắn Giữa', 'lose')}
+                ${getHeatmapCell(s.heatmapLost['ngan_phai'] || 0, s.points.lose, 'Ngắn Phải', 'lose')}
+                ${getHeatmapCell(s.heatmapLost['dai_trai'] || 0, s.points.lose, 'Dài Trái', 'lose')}
+                ${getHeatmapCell(s.heatmapLost['dai_giua'] || 0, s.points.lose, 'Dài Giữa', 'lose')}
+                ${getHeatmapCell(s.heatmapLost['dai_phai'] || 0, s.points.lose, 'Dài Phải', 'lose')}
+            </div>
+        </div>
+    </div>`;
+
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">PHÂN TÍCH ĐỘ XOÁY</h3>`;
+    const spinKeys = Object.keys(s.spin);
+    if(spinKeys.length > 0) {
+        spinKeys.forEach(k => {
+            const sp = s.spin[k];
+            const name = appState.dict.thuoc_tinh_bong.do_xoay[k] || k;
             html += `
-                <div>
-                    <div class="flex justify-between font-bold text-sm mb-1"><span>${titleName} (${obj.total})</span></div>
-                    <div class="flex gap-4 text-xs">
-                        <div class="flex-1 bg-gray-50 rounded p-2 border"><div class="text-gray-500 mb-1">Tỷ lệ thắng</div><div class="font-black text-green-600">${toPct(obj.win, obj.total)}%</div></div>
-                        <div class="flex-1 bg-gray-50 rounded p-2 border"><div class="text-gray-500 mb-1">Tỷ lệ ép lỗi</div><div class="font-black text-blue-600">${toPct(obj.forcedError, obj.total)}%</div></div>
+                <div class="py-2 border-b last:border-0">
+                    <div class="flex justify-between items-center mb-1"><span class="font-bold text-sm text-gray-800">${name}</span><span class="text-xs text-gray-500">${sp.total} điểm</span></div>
+                    <div class="flex gap-2">
+                        <div class="flex-1">
+                            <div class="flex justify-between text-[10px] font-bold text-gray-500"><span>Win Rate</span><span>${toPct(sp.win, sp.total)}%</span></div>
+                            ${bar(toPct(sp.win, sp.total))}
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between text-[10px] font-bold text-gray-500"><span>Tỷ lệ bị ép đánh hỏng</span><span>${toPct(sp.forcedErrorAgainstMe, s.points.lose)}%</span></div>
+                            ${bar(toPct(sp.forcedErrorAgainstMe, s.points.lose), 'bg-red-500')}
+                        </div>
                     </div>
                 </div>
             `;
         });
-        html += `</div></div>`;
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu phân tích độ xoáy.</div>`;
     }
+    html += `</div></div>`;
 
-    // Error Location
-    const errTotals = Object.values(s.errorLocation).reduce((a,b)=>a+b,0);
-    if(errTotals > 0) {
-        html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-gray-800 border-b pb-2 mb-3">VỊ TRÍ HỎNG BÓNG</h3><div class="space-y-3">`;
-        Object.keys(s.errorLocation).forEach(k => {
-            const c = s.errorLocation[k];
-            if (c === 0) return;
-            html += `<div><div class="flex justify-between text-xs mb-1"><span>${appState.dict.thuoc_tinh_loi.vi_tri_hong[k]}</span><span class="font-bold">${c} (${toPct(c, errTotals)}%)</span></div>${bar(toPct(c, errTotals), 'bg-orange-500')}</div>`;
-        });
-        html += `</div></div>`;
-    }
+    // --- NHÓM 3: TOP 10 KỸ THUẬT ---
+    html += `<div><h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">3. BẢNG XẾP HẠNG KỸ THUẬT (TOP 10)</h2>`;
     
-    // Technique Ranking (Top 10)
-    const allTechKeys = Object.keys(s.technique);
-    if (allTechKeys.length > 0) {
-        html += `
-            <div class="bg-white rounded-xl shadow-sm border p-4 mb-4 overflow-x-auto">
-                <h3 class="font-bold text-gray-800 border-b pb-2 mb-3">BẢNG XẾP HẠNG KỸ THUẬT (TOP 10)</h3>
-                <table class="w-full text-xs text-left whitespace-nowrap">
-                    <thead class="text-gray-500 bg-gray-50 uppercase border-b">
-                        <tr>
-                            <th class="px-2 py-2">Kỹ thuật</th>
-                            <th class="px-2 py-2 text-center text-green-600">Winner</th>
-                            <th class="px-2 py-2 text-center text-red-600">Tự hỏng</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-        `;
-        const rankedTechs = allTechKeys.sort((a,b) => (s.technique[b].winnerByMe) - (s.technique[a].winnerByMe)).slice(0, 10);
-        rankedTechs.forEach(k => {
+    // Top 10 Scoring
+    const topScoring = Object.keys(s.technique).sort((a,b)=>s.technique[b].scoring - s.technique[a].scoring).filter(k => s.technique[k].scoring > 0).slice(0, 10);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-green-700 border-b pb-2 mb-3">Top 10 Kỹ thuật ghi điểm (Winner + Ép đối thủ lỗi)</h3>`;
+    if(topScoring.length>0) {
+        topScoring.forEach(k => {
+            const tech = s.technique[k];
             html += `
-                <tr class="border-b last:border-0">
-                    <td class="px-2 py-2 font-bold">${getName(k)}</td>
-                    <td class="px-2 py-2 text-center font-bold text-green-600">${s.technique[k].winnerByMe}</td>
-                    <td class="px-2 py-2 text-center font-bold text-red-600">${s.technique[k].unforcedErrorByMe}</td>
-                </tr>
+                <div class="py-2 border-b last:border-0 text-sm flex justify-between items-center">
+                    <span class="font-semibold">${getName(k)}</span>
+                    <div class="text-right">
+                        <span class="font-black text-green-600 text-lg">${tech.scoring}</span>
+                        <div class="text-[10px] text-gray-500">${tech.winner} winner &bull; ${tech.forcedByMe} ép lỗi</div>
+                    </div>
+                </div>
             `;
         });
-        html += `</tbody></table></div>`;
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu ghi điểm.</div>`;
     }
+    html += `</div>`;
+    
+    // Top 10 Losing
+    const topLosing = Object.keys(s.technique).sort((a,b)=>s.technique[b].losing - s.technique[a].losing).filter(k => s.technique[k].losing > 0).slice(0, 10);
+    html += `<div class="bg-white rounded-xl shadow-sm border p-4 mb-4"><h3 class="font-bold text-red-700 border-b pb-2 mb-3">Top 10 Kỹ thuật mất điểm (Tự hỏng + Bị ép lỗi)</h3>`;
+    if(topLosing.length>0) {
+        topLosing.forEach(k => {
+            const tech = s.technique[k];
+            html += `
+                <div class="py-2 border-b last:border-0 text-sm flex justify-between items-center">
+                    <span class="font-semibold">${getName(k)}</span>
+                    <div class="text-right">
+                        <span class="font-black text-red-600 text-lg">${tech.losing}</span>
+                        <div class="text-[10px] text-gray-500">${tech.unforced} tự hỏng &bull; ${tech.forcedAgainstMe} bị ép lỗi</div>
+                    </div>
+                </div>
+            `;
+        });
+    } else {
+        html += `<div class="text-sm text-gray-500">Chưa có dữ liệu mất điểm.</div>`;
+    }
+    html += `</div></div>`;
 
-    html += `</div>`; // End Tactical Analytics
 
-    // --- NHÓM 3: MOMENTUM ---
+    // --- NHÓM 4: Momentum & Game Summary ---
     html += `
         <div>
-            <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">3. Momentum (Chuỗi điểm)</h2>
+            <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">4. Momentum & Tóm tắt Game</h2>
             <div class="bg-white rounded-xl shadow-sm border p-4 mb-4">
                 <div class="grid grid-cols-3 gap-2 text-center">
                     <div><div class="text-[10px] uppercase text-gray-500 font-bold">Chuỗi Thắng</div><div class="font-black text-green-600 text-2xl">${s.maxWinStreak}</div></div>
@@ -1602,14 +1679,10 @@ function renderDashboard(container) {
                     <div><div class="text-[10px] uppercase text-gray-500 font-bold">Chuỗi Tự hỏng</div><div class="font-black text-red-600 text-2xl">${s.maxUnforcedStreak}</div></div>
                 </div>
             </div>
-        </div>
     `;
 
-    // --- NHÓM 4: GAME SUMMARY ---
     if (s.gameSummary.length > 0) {
         html += `
-            <div>
-                <h2 class="text-xl font-black text-gray-800 border-b-2 border-gray-800 pb-2 mb-4 uppercase mt-8">4. Game Summary</h2>
                 <div class="bg-white rounded-xl shadow-sm border p-4 overflow-x-auto">
                     <table class="w-full text-xs text-left whitespace-nowrap">
                         <thead class="text-gray-500 bg-gray-50 uppercase border-b">
@@ -1638,77 +1711,14 @@ function renderDashboard(container) {
                 </tr>
             `;
         });
-        html += `</tbody></table></div></div>`;
+        html += `</tbody></table></div>`;
     }
+    html += `</div></div>`;
 
-    html += `</div>`;
     container.innerHTML = html;
 };
 
-
-        // --- SETTINGS ---
-        function renderSettings(container) {
-            const { user, repo, branch, dataPath, dictPath, token } = appState.github;
-            container.innerHTML = `
-                <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-4 mb-4">
-                    <h2 class="text-xl font-bold mb-2">Cài đặt GitHub</h2>
-                    <p class="text-xs text-yellow-600 bg-yellow-50 p-2 rounded mb-4">
-                        <i class="fas fa-exclamation-triangle"></i> Personal Access Token được lưu trong trình duyệt. Chỉ nên sử dụng fine-grained token có quyền giới hạn đối với đúng repository cần thiết. Không sử dụng ứng dụng trên thiết bị công cộng.
-                    </p>
-                    <form onsubmit="handleSettingsSubmit(event)" class="space-y-4">
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">GitHub Username / Organization</label>
-                            <input type="text" id="st_user" value="${escapeHtml(user)}" class="w-full border rounded p-2 text-sm" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Repository Name</label>
-                            <input type="text" id="st_repo" value="${escapeHtml(repo)}" class="w-full border rounded p-2 text-sm" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Branch</label>
-                            <input type="text" id="st_branch" value="${escapeHtml(branch)}" class="w-full border rounded p-2 text-sm" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Data File Path</label>
-                            <input type="text" id="st_data" value="${escapeHtml(dataPath)}" class="w-full border rounded p-2 text-sm" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Dictionary File Path</label>
-                            <input type="text" id="st_dict" value="${escapeHtml(dictPath)}" class="w-full border rounded p-2 text-sm" required>
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold text-gray-600 mb-1">Personal Access Token</label>
-                            <input type="password" id="st_token" value="${escapeHtml(token)}" class="w-full border rounded p-2 text-sm" placeholder="ghp_...">
-                        </div>
-                        <div class="flex gap-2 pt-4 flex-wrap">
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium shadow flex-1 whitespace-nowrap"><i class="fas fa-save"></i> Lưu & Kết nối</button>
-                            <button type="button" onclick="clearSettings()" class="bg-red-50 text-red-600 border border-red-200 px-4 py-2 rounded-lg font-medium flex-1 whitespace-nowrap"><i class="fas fa-trash"></i> Xóa Token</button>
-                            <button type="button" onclick="useMockData()" class="bg-gray-100 text-gray-700 px-4 py-2 rounded-lg font-medium w-full mt-2"><i class="fas fa-database"></i> Dùng Dữ Liệu Mẫu</button>
-                        </div>
-                    </form>
-                </div>
-            `;
-        }
-        async function handleSettingsSubmit(e) {
-            e.preventDefault();
-            saveGithubConfig({
-                user: document.getElementById('st_user').value,
-                repo: document.getElementById('st_repo').value,
-                branch: document.getElementById('st_branch').value,
-                dataPath: document.getElementById('st_data').value,
-                dictPath: document.getElementById('st_dict').value,
-                token: document.getElementById('st_token').value
-            });
-            await fetchGithubData();
-        }
-        function clearSettings() {
-            saveGithubConfig({ token: '' });
-            showToast('Đã xóa token.');
-            renderView('settings');
-        }
-
-        
-        window.updateDashboardPerspective = function(pers) {
+window.updateDashboardPerspective = function(pers) {
             appState.dashboardPerspective = pers;
             renderView('dashboard');
         };
