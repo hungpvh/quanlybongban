@@ -18,7 +18,7 @@
         "game_so": 1,
         "ty_so_bat_dau": "0-0",
         "nguoi_giao_bong_truoc": "Nghiêm Xuân Hùng",
-        "ty_so_chung_cuoc": "7-6",
+        "ty_so_chung_cuoc": "7-7",
         "trang_thai": "dang_dau",
         "danh_sach_diem": [
           {
@@ -258,6 +258,25 @@
               "tinh_chat": "winner",
               "nguoi_ket_thuc": "Nghiêm Xuân Hùng",
               "ky_thuat_ket_thuc": "giat_phai",
+              "nguoi_kien_tao": null,
+              "ky_thuat_kien_tao": null,
+              "dac_tinh": {
+                "diem_roi_ngang": "trai",
+                "do_dai": "dai",
+                "do_xoay": "len",
+                "vi_tri_hong": null
+              }
+            }
+          },
+          {
+            "thu_tu_diem": 14,
+            "ty_so_hien_tai": "7-7",
+            "loai_diem": "thua",
+            "nguoi_giao_bong": "Nghiêm Xuân Hùng",
+            "chi_tiet_pha_bong": {
+              "tinh_chat": "winner",
+              "nguoi_ket_thuc": "Nghiêm Xuân Hùng",
+              "ky_thuat_ket_thuc": "doi_cong_trai",
               "nguoi_kien_tao": null,
               "ky_thuat_kien_tao": null,
               "dac_tinh": {
