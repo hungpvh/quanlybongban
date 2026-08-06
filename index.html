@@ -194,7 +194,7 @@ const MOCK_MATCHES = [
             isMock: true,
             currentMatchId: null,
             currentGameIndex: null,
-            github: { user: '', repo: '', branch: 'main', dataPath: 'dulieubongban.json', dictPath: 'tu_dien_bong_ban.json', token: '', sha: null, dictSha: null },
+            github: { user: '', repo: '', codeBranch: 'main', dataBranch: 'data', dataPath: 'dulieubongban.json', dictPath: 'tu_dien_bong_ban.json', token: '', sha: null, dictSha: null },
             isLoading: false,
             isSyncing: false
         };
@@ -379,7 +379,10 @@ const MOCK_MATCHES = [
         async function loadGithubConfig() {
             const stored = localStorage.getItem('bongban_gh_config');
             if (stored) {
-                appState.github = { ...appState.github, ...JSON.parse(stored) };
+                const parsed = JSON.parse(stored);
+                parsed.codeBranch = parsed.codeBranch || parsed.branch || 'main';
+                parsed.dataBranch = parsed.dataBranch || 'data';
+                appState.github = { ...appState.github, ...parsed };
                 if (appState.github.token && appState.github.user && appState.github.repo) {
                     await fetchGithubData();
                     return;
@@ -392,10 +395,11 @@ const MOCK_MATCHES = [
             localStorage.setItem('bongban_gh_config', JSON.stringify(appState.github));
         }
         async function githubApi(method, path, body = null) {
-            const { user, repo, branch, token } = appState.github;
+            const { user, repo, dataBranch, token } = appState.github;
+            const branchToUse = dataBranch || 'data';
             const url = new URL(`https://api.github.com/repos/${user}/${repo}/contents/${path}`);
             if (method === 'GET') {
-                if (branch) url.searchParams.append('ref', branch);
+                url.searchParams.append('ref', branchToUse);
             }
             // Add cache buster for all requests just to be safe
             url.searchParams.append('t', Date.now());
@@ -456,7 +460,7 @@ const MOCK_MATCHES = [
                 }
                 
                 const content = b64EncodeUnicode(JSON.stringify(appState.matches, null, 2));
-                const body = { message: 'Update matches', content, branch: appState.github.branch };
+                const body = { message: 'Update matches', content, branch: appState.github.dataBranch || 'data' };
                 if (latestSha) {
                     body.sha = latestSha;
                 }
