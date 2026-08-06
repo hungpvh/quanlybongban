@@ -337,7 +337,7 @@
               "nguoi_kien_tao": null,
               "ky_thuat_kien_tao": null,
               "dac_tinh": {
-                "diem_roi_ngang": "trai",
+                "diem_roi_ngang": "phai",
                 "do_dai": "dai",
                 "do_xoay": "long",
                 "vi_tri_hong": null
